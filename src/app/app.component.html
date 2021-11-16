@@ -1,3 +1,9 @@
-<app-header></app-header>
-<app-body></app-body>
-<app-footer></app-footer>
+<a [routerLink]="['/']" class="header-link"> 
+    <app-header class="grid grid-wrap"></app-header>
+</a>
+
+<app-body
+    [auth]="auth"
+></app-body>
+
+<app-footer class="grid"></app-footer>

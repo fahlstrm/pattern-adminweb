@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
+  host: {
+    class: `grid grid-wrap`
+  }, //Added to set grid for the router-outlet components
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {

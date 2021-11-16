@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.grid-wrap {
+    padding: 2em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    grid-auto-rows: minmax(2rem, auto);
+}
+
+.header-link {
+    text-decoration: none;
+    color: black;
+}
