@@ -1,2 +1,8 @@
 <a *ngFor="let city of cityService.cities | async" routerLink="/city/{{city.name}}" class="nav-link">{{city.name}}</a>
 
+<div class="map"
+     leaflet 
+     [leafletOptions]="options">
+</div>
+
+<app-scooter-table></app-scooter-table>

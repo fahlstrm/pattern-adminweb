@@ -1,0 +1,7 @@
+div {
+    grid-column: 1/span 4;
+}
+
+app-customer-table {
+    grid-column: 5/span 4;
+}

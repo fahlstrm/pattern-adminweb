@@ -6,3 +6,14 @@
     align-content: flex-start;
 }
 
+.map {
+    grid-column: 1/span 8;
+    grid-row: 2;
+    height: 50vh;
+}
+
+app-scooter-table {
+    grid-column: 9/span 4;
+    grid-row: 2;
+}
+

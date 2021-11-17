@@ -2,8 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-//Angular material module
+//Angular material module from modules-folder
 import { MaterialModule } from './modules/material/material.module';
+
+//Leaflet
+import { LeafletModule } from '@asymmetrik/ngx-leaflet'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ScooterTableComponent } from './tables/scooter-table/scooter-table.component';
+import { CustomerTableComponent } from './tables/customer-table/customer-table.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,7 @@ import { ScooterTableComponent } from './tables/scooter-table/scooter-table.comp
     CitiesComponent,
     CustomersComponent,
     ScooterTableComponent,
+    CustomerTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { ScooterTableComponent } from './tables/scooter-table/scooter-table.comp
     MaterialModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
