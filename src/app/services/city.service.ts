@@ -9,15 +9,24 @@ import { Observable, of} from "rxjs";
 export class CityService {
   _cities: any = [
     {
-      name: "Skövde", 
+      "id": 1,
+      "name": "Skövde",
+      "lat_pos": 58.1815656,
+      "lon_pos": 13.9546027
     },
     {
-      name: "Lund", 
+      "id": 2,
+      "name": "Lund",
+      "lat_pos": 55.7048771,
+      "lon_pos": 13.190846
     },
     {
-      name: "Uppsala", 
+      "id": 3,
+      "name": "Uppsala",
+      "lat_pos": 59.859589,
+      "lon_pos": 17.6363316
     }
-  ];
+  ]  
 
   constructor() { }
 
