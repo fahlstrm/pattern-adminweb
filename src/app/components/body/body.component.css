@@ -8,15 +8,6 @@ nav {
     align-content: flex-start;
 }
 
-nav a {
-    text-decoration: none;
-    color: black;
-    align-self: center;
-}
-
-nav a:hover {
-    color: grey;
-}
 
 .push {
     margin-left: auto;

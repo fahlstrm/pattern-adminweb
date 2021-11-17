@@ -1,3 +1,2 @@
-<!-- <div *ngFor="let city of cities">
-    <a routerLink="/city/{{city.link}}">{{city.name}}</a>
-</div> -->
+<a *ngFor="let city of cityService.cities | async" routerLink="/city/{{city.name}}" class="nav-link">{{city.name}}</a>
+

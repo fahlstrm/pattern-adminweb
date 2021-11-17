@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CityService } from 'src/app/services/city.service'; 
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cities',
@@ -9,19 +12,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
-  cities: any = [
-    {
-      name: "Skövde", 
-    },
-    {
-      name: "Lund", 
-    },
-    {
-      name: "Uppsala", 
-    }
-  ];
+  // //Ändra till City-obs? 
+  // cities: any[] = [];
 
-  constructor() { }
+  constructor(
+    public cityService: CityService
+  ) { }
 
   ngOnInit(): void {
   }
