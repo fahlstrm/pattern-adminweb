@@ -29,7 +29,7 @@ import { ScooterTableComponent } from './tables/scooter-table/scooter-table.comp
     CityComponent,
     CitiesComponent,
     CustomersComponent,
-    ScooterTableComponent
+    ScooterTableComponent,
   ],
   imports: [
     BrowserModule,
