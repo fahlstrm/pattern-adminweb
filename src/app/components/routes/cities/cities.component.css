@@ -1,3 +1,22 @@
-div {
-    padding: 2rem;
+.city-div {
+    position: relative;
+    text-align: center;
+    height: 22vh;
+    object-fit: cover;
 }
+
+.city-div img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.city-div p {
+    color: rgb(180, 177, 177);
+    text-decoration: none;
+    font-size: 3.2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+  }

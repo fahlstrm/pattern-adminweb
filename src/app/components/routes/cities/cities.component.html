@@ -1,3 +1,7 @@
-<div *ngFor="let city of cities">
-    <a routerLink="/city/{{city.link}}">{{city.name}}</a>
+<div *ngFor="let city of cities" class="content-div city-div">
+    <!-- <img src="assets/img/{{city.name}}.jpg" alt="{{city.name}}">  -->
+    <a routerLink="/city/{{city.name}}">
+        <img src="assets/img/{{city.name}}.jpg" alt="{{city.name}}"> 
+        <p>{{city.name}}</p>
+    </a>
 </div>
