@@ -14,7 +14,6 @@ import { HomeComponent } from './components/routes/home/home.component';
 import { CityComponent } from './components/routes/city/city.component';
 import { CitiesComponent } from './components/routes/cities/cities.component';
 import { CustomersComponent } from './components/routes/customers/customers.component';
-import { CustomerTableComponent } from './components/customer-table/customer-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -30,7 +29,6 @@ import { ScooterTableComponent } from './tables/scooter-table/scooter-table.comp
     CityComponent,
     CitiesComponent,
     CustomersComponent,
-    CustomerTableComponent,
     ScooterTableComponent
   ],
   imports: [

@@ -24,3 +24,20 @@ body {
     grid-column-start: auto;
     grid-column-end: span 4;
 }
+
+
+.center-content {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    
+    text-decoration: none;
+    color: black;
+    align-self: center;
+}
+
+.nav-link:hover {
+    color: grey;
+}
