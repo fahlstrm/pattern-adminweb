@@ -12,24 +12,12 @@ export class CitiesComponent implements OnInit {
   cities: any = [
     {
       name: "Skövde", 
-      img: "test", 
-      alt: "alt text",
-      link: "/skovde",
-      city_id: "1"
     },
     {
       name: "Lund", 
-      img: "test", 
-      alt: "alt text",
-      link: "/lund",
-      city_id: "2"
     },
     {
-      name: "Linköping", 
-      img: "test", 
-      alt: "alt text",
-      link: "/linkoping",
-      city_id: "3"
+      name: "Uppsala", 
     }
   ];
 

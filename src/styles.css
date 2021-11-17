@@ -18,3 +18,9 @@ body {
     text-decoration: none;
     color: black;
 }
+
+.content-div {
+    padding: 2rem;
+    grid-column-start: auto;
+    grid-column-end: span 4;
+}
