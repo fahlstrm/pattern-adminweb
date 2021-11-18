@@ -14,5 +14,8 @@ export class HttpService {
   getCities() {
     return this.http.get<any>(`${this.baseUrl}/cities`);
   }
-
+  
+  getScooters() {
+    return this.http.get<any>(`${this.baseUrl}/scooters`);
+  }
 }

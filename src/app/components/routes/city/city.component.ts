@@ -4,8 +4,6 @@ import { ScooterService } from 'src/app/services/scooter.service';
 import { Subject, Subscription } from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
-import { icon, latLng, Map, marker, point, polyline, tileLayer } from 'leaflet';
-import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/cdk/overlay/overlay-directives';
 
 @Component({
   selector: 'app-city',
@@ -16,14 +14,6 @@ import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
-  options = {
-    layers: [
-      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
-    ],
-    zoom: 5,
-    center: latLng(46.879966, -121.726909)
-  };
-
   curr_city: any = [];
   city_name: string = ``;
   scooters: any = [];
@@ -39,10 +29,9 @@ export class CityComponent implements OnInit {
     this.router.params.subscribe((params: any) => {
       this.city_name = params.name;
       this.curr_city = this.cityService._cities.filter((city:any) => city.name == params.name);
-      console.log(this.curr_city);  
     })
     
-    this.scooters = this.scooterService.getScooters();
+    this.scooters = this.scooterService._scooters.filter((scooter: any) => scooter.city_id == this.curr_city[0].id);
+    console.log(this.scooters)
   }
-
 }

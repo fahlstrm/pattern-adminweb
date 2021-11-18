@@ -20,8 +20,10 @@ import { CustomersComponent } from './components/routes/customers/customers.comp
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { ScooterTableComponent } from './tables/scooter-table/scooter-table.component';
-import { CustomerTableComponent } from './tables/customer-table/customer-table.component';
+import { ScooterTableComponent } from './components/tables/scooter-table/scooter-table.component';
+import { CustomerTableComponent } from './components/tables/customer-table/customer-table.component';
+import { MapComponent } from './components/utils/map/map.component';
+import { StationTableComponent } from './components/tables/station-table/station-table.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { CustomerTableComponent } from './tables/customer-table/customer-table.c
     CustomersComponent,
     ScooterTableComponent,
     CustomerTableComponent,
+    MapComponent,
+    StationTableComponent,
   ],
   imports: [
     BrowserModule,

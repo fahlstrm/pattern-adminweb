@@ -1,8 +1,6 @@
 <a *ngFor="let city of cityService.cities | async" routerLink="/city/{{city.name}}" class="nav-link">{{city.name}}</a>
-{{ curr_city }}
-<div class="map"
-     leaflet 
-     [leafletOptions]="options">
-</div>
+{{ curr_city[0].name }}
 
-<app-scooter-table></app-scooter-table>
+<app-map [curr_city] = "curr_city" [scooters]="scooters"></app-map>
+<app-scooter-table [curr_city] = "curr_city" [scooters]="scooters"></app-scooter-table>
+<app-station-table [curr_city] = "curr_city"></app-station-table>
