@@ -23,7 +23,6 @@ export class ScooterService {
       this.httpService.getScooters().subscribe((data:any) => {
         this._scooters = data;
       })
-      console.log(this._scooters)
       return this._scooters;
     }
 }

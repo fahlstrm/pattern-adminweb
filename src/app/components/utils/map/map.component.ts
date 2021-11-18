@@ -9,13 +9,12 @@ import { icon, latLng, Map, marker, point, polyline, tileLayer } from 'leaflet';
 })
 export class MapComponent implements OnInit {
   layers!: Array<any>
-  cityCenter: any = ``;
+  // cityCenter: any = ``;
 
+  cityCenter = latLng([58.396830, 13.853019]);
   
   @Input() curr_city: any;
   @Input() scooters: any;
-
-
 
   // Base layers
   streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -50,7 +49,7 @@ export class MapComponent implements OnInit {
 
     
   options = {
-    zoom: 5,
+    zoom: 10,
     center: this.cityCenter
   };
 

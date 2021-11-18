@@ -32,6 +32,5 @@ export class CityComponent implements OnInit {
     })
     
     this.scooters = this.scooterService._scooters.filter((scooter: any) => scooter.city_id == this.curr_city[0].id);
-    console.log(this.scooters)
   }
 }
