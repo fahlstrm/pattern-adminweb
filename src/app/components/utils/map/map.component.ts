@@ -55,10 +55,17 @@ export class MapComponent implements OnInit {
 
 
 
-  constructor(private zone: NgZone) { }
+  constructor(
+    private zone: NgZone
+    ) { }
 
   ngOnInit(): void {
     this.cityCenter = latLng([this.curr_city[0].lat_center, this.curr_city[0].lon_center]);
+    // this.addMapContent();
+  }
+
+  ngOnChanges() {
+    console.log("i ngDoCheck" , this.scooters)
     this.addMapContent();
   }
 
@@ -70,7 +77,6 @@ export class MapComponent implements OnInit {
       this.streetMaps,
       this.wMaps
     ];
-    
     this.scooters.forEach((scooter:any) => {
       this.layers.push(marker([ scooter.lat_pos, scooter.lon_pos], {
         icon: this.icon}))

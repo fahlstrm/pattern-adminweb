@@ -8,18 +8,21 @@ import { Scooter } from '../Scooter';
   providedIn: 'root'
 })
 export class ScooterService {
-  
-  _scooters: any = [];
 
-  constructor(private httpService: HttpService, private http: HttpClient ) { 
-    this.getScooters();
+  allScooters: any = [];
+  private allScootersSubject: Subject<any> = new Subject<any>();
+    private subject = new Subject<any>();
+
+
+  constructor(private httpService: HttpService, private http: HttpClient ) {
+    // this.getScooters();
   }
 
 
-    //Will return _cites as an Observable. call cityService.cities | async in order to loop the array
-    get scooters() {
-      return of(this._scooters);
-    }
+    // //Will return _cites as an Observable. call cityService.cities | async in order to loop the array
+    // get scooters() {
+    //   return of(this._scooters);
+    // }
 
     // getScooters()  {
     //   this.httpService.getScooters().subscribe((data:any) => {
@@ -27,7 +30,17 @@ export class ScooterService {
     //   })
     //   return this._scooters;
     // }
-    getScooters(): Observable<Scooter[]>  {
-      return this.http.get<any>(`${this.httpService.baseUrl}/scooters`);
+
+    
+    getScooters(): Observable<any> {
+      this.httpService.getScooters().subscribe((data:any) => {
+        this.subject.next(data);
+      });
+      return this.subject.asObservable();
     }
+    // startScooterSubscription(): void  {
+    //   this.http.get<any>(`${this.httpService.baseUrl}/scooters`);
+    //   this.allScootersSubject.next(this.allScooters)
+    // }
+
 }
