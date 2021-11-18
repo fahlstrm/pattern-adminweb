@@ -31,6 +31,9 @@ export class CityComponent implements OnInit {
       this.curr_city = this.cityService._cities.filter((city:any) => city.name == params.name);
     })
     
-    this.scooters = this.scooterService._scooters.filter((scooter: any) => scooter.city_id == this.curr_city[0].id);
+    // this.scooters = this.scooterService._scooters.filter((scooter: any) => scooter.city_id == this.curr_city[0].id);
+    this.scooterService.getScooters().subscribe((scooter: any) => {
+      this.scooters = scooter;
+    });
   }
 }

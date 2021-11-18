@@ -7,6 +7,7 @@ import { MaterialModule } from './modules/material/material.module';
 
 //Leaflet
 import { LeafletModule } from '@asymmetrik/ngx-leaflet'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +49,8 @@ import { StationTableComponent } from './components/tables/station-table/station
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    LeafletModule
+    LeafletModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
