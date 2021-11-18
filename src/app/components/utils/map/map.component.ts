@@ -15,11 +15,7 @@ export class MapComponent implements OnInit {
   @Input() curr_city: any;
   @Input() scooters: any;
 
-  
-  options = {
-    zoom: 5,
-    center: this.cityCenter
-  };
+
 
   // Base layers
   streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -34,23 +30,29 @@ export class MapComponent implements OnInit {
   icon = icon({
     iconSize: [ 40, 40 ],
     iconAnchor: [ 13, 41 ],
-    iconUrl: '../../../assets/img/scooter.png',
+    iconUrl: '../../../assets/img/icon/scooter.png',
     // shadowUrl: 'leaflet/marker-shadow.png'
   })
 
   parkingIcon = icon({
     iconSize: [ 35, 35 ],
     iconAnchor: [ 13, 41 ],
-    iconUrl: '../../../assets/img/parking.png',
+    iconUrl: '../../../assets/img/icon/parking.png',
     // shadowUrl: 'leaflet/marker-shadow.png'
   })
 
   chargeIcon = icon({
     iconSize: [ 40, 40 ],
     iconAnchor: [ 13, 41 ],
-    iconUrl: '../../../assets/img/charge.png',
+    iconUrl: '../../../assets/img/icon/charge.png',
     // shadowUrl: 'leaflet/marker-shadow.png'
   })
+
+    
+  options = {
+    zoom: 5,
+    center: this.cityCenter
+  };
 
 
 
