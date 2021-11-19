@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator'; // for paginator in table (ability to switch pages)
 import {MatSort, MatSortModule} from '@angular/material/sort'; //sorting table
-import {MatTableDataSource, MatTableModule} from '@angular/material/table'; //table module
-import {MatButtonModule} from '@angular/material/button'; //button module
-import {MatIconModule} from '@angular/material/icon'; // icon module
+import {MatTableDataSource, MatTableModule} from '@angular/material/table'; //table 
+import {MatButtonModule} from '@angular/material/button'; //button 
+import {MatIconModule} from '@angular/material/icon'; // icon 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; // toggle
+
 
 const MaterialComponents = [
     MatButtonModule,
@@ -14,6 +16,7 @@ const MaterialComponents = [
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
+    MatSlideToggleModule
   ]
   
   @NgModule({

@@ -35,15 +35,16 @@ export class StationTableComponent implements AfterViewInit {
       this.dataSource.data = resources; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
     });
-    this.table.renderRows();
   }
   
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
     this.refresh();
+  }
+
+  onClick(row: any) {
+    console.log(row)
   }
 }

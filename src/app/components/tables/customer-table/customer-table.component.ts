@@ -18,28 +18,28 @@ export class CustomerTableComponent implements AfterViewInit {
   dataSource: CustomerTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'username', 'funds', 'paymentTerms'];
+  displayedColumns = ['id', 'username', 'funds', 'payment_terms'];
 
   constructor(public customerService: CustomerService) {
     this.dataSource = new CustomerTableDataSource();
   }
 
-  
   //Gets data from scooterService 
   refresh(): void{
     this.customerService.getUsers().subscribe(resources => {
       this.dataSource.data = resources; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
     });
     this.table.renderRows();
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
     this.refresh();
+  }
 
+  onClick(row: any) {
+    console.log(row)
   }
 }

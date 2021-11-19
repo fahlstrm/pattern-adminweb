@@ -9,7 +9,7 @@ export interface CustomerTableItem {
   username: string;
   id: number;
   funds: string;
-  paymentTerms: string;
+  payment_terms: string;
 }
 
 // TODO: replace this with real data from your application
@@ -80,7 +80,7 @@ export class CustomerTableDataSource extends DataSource<CustomerTableItem> {
       switch (this.sort?.active) {
         case 'username': return compare(a.username, b.username, isAsc);
         case 'funds': return compare(a.funds, b.funds, isAsc);
-        case 'paymentTerms': return compare(a.paymentTerms, b.paymentTerms, isAsc);
+        case 'payment_terms': return compare(a.payment_terms, b.payment_terms, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }

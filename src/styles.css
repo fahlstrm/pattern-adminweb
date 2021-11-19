@@ -41,3 +41,13 @@ body {
 .nav-link:hover {
     color: grey;
 }
+
+.mat-row:hover {
+    background-color: rgba(211, 211, 211, 0.61);;
+}
+
+
+
+
+
+

@@ -18,13 +18,11 @@ import { HomeComponent } from './components/routes/home/home.component';
 import { CityComponent } from './components/routes/city/city.component';
 import { CitiesComponent } from './components/routes/cities/cities.component';
 import { CustomersComponent } from './components/routes/customers/customers.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 import { ScooterTableComponent } from './components/tables/scooter-table/scooter-table.component';
 import { CustomerTableComponent } from './components/tables/customer-table/customer-table.component';
 import { MapComponent } from './components/utils/map/map.component';
 import { StationTableComponent } from './components/tables/station-table/station-table.component';
+import { ScooterDialogComponent } from './components/utils/dialogs/scooter-dialog/scooter-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,15 +38,13 @@ import { StationTableComponent } from './components/tables/station-table/station
     CustomerTableComponent,
     MapComponent,
     StationTableComponent,
+    ScooterDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     LeafletModule,
     BrowserAnimationsModule
   ],

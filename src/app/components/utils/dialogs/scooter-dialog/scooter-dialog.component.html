@@ -1,0 +1,14 @@
+<mat-dialog-content>
+    <h1 mat-dialog-title>Elscooter: {{data.id}}</h1>
+    <p> ID: {{data.id}} <br> Station: {{data.station_id}} <br> Batterinivå: {{data.battery_level}} <br> Status: {{data.status}}</p>
+    <mat-slide-toggle
+        class="example-margin"
+        [checked]="checked"
+        [disabled]="disabled">
+        <p>{{data.status == 'active' ? 'Avaktivera' : 'Aktivera' }}</p>
+    </mat-slide-toggle>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
