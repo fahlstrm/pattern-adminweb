@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CityService } from 'src/app/services/city.service'; 
 
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cities',
@@ -13,11 +13,11 @@ import { Subscription } from 'rxjs';
 })
 export class CitiesComponent implements OnInit {
   // //Ändra till City-obs? 
-  // cities: any[] = [];
+  cities: any;
 
   constructor(
     public cityService: CityService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
   }

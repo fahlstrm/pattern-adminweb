@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { StationTableDataSource, StationTableItem } from './station-table-datasource';
+import { StationService } from 'src/app/services/station.service'; 
+
 
 @Component({
   selector: 'app-station-table',
@@ -12,23 +14,36 @@ import { StationTableDataSource, StationTableItem } from './station-table-dataso
 export class StationTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<StationTableItem>;
+  @ViewChild(MatTable) table!: MatTable<any>;
   dataSource: StationTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'location', 'type'];
 
-  @Input() curr_city: any;
+  @Input() city: any;
   @Input() scooters: any;
 
 
-  constructor() {
+  constructor(public stationService: StationService,) {
     this.dataSource = new StationTableDataSource();
   }
+
+  
+  //Gets data from stationsService 
+  refresh(): void{
+    this.stationService.getStations().subscribe(resources => {
+      this.dataSource.data = resources; 
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    });
+    this.table.renderRows();
+  }
+  
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+    this.refresh();
   }
 }

@@ -1,6 +1,6 @@
 <a *ngFor="let city of cityService.cities | async" routerLink="/city/{{city.name}}" class="nav-link">{{city.name}}</a>
-{{ curr_city[0].name }}
+<!-- <p>city: {{ city[0].name }} </p> -->
 
-<app-map [curr_city] = "curr_city" [scooters]="scooters"></app-map>
-<app-scooter-table [curr_city] = "curr_city" [scooters]="scooters"></app-scooter-table>
-<app-station-table [curr_city] = "curr_city"></app-station-table>
+<app-map [city] = "city" [scooters]="scooters"></app-map>
+<app-scooter-table [city] = "city" [scooters]="scooters"></app-scooter-table>
+<app-station-table [city] = "city"></app-station-table>

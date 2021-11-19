@@ -3,37 +3,21 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { ScooterService } from 'src/app/services/scooter.service';
 
 // TODO: Replace this with your own data model type
 export interface ScooterTableItem {
-  name: string;
+  status: string;
   id: number;
+  battery_level: number;
+  station_id: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: ScooterTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
-];
-
+  // {id: 1, status: 'active', battery_level: 68, station_id: 5},
+  // {id: 2, status: 'active', battery_level: 8, station_id: 6},
+]
 /**
  * Data source for the ScooterTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
@@ -97,8 +81,11 @@ export class ScooterTableDataSource extends DataSource<ScooterTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'status': return compare(a.status, b.status, isAsc);
+        case 'battery_level': return compare(a.battery_level, b.battery_level, isAsc);
+        case 'station_id': return compare(a.station_id, b.station_id, isAsc);
+
         default: return 0;
       }
     });

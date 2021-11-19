@@ -8,29 +8,35 @@ import { HttpService } from './http.service';
 })
 export class CityService {
   private subject = new Subject<any>();
-  _cities: any = [];
+  private _cities: any = [];
+  private _city: string = ``;
+  // cities: any = [];
 
   constructor(private httpService: HttpService) { 
-    this.getCities();
+    this.loadCitites();
   }
 
-  //Will return _cites as an Observable. call cityService.cities | async in order to loop the array
+  /**
+   * Will return _cites as an Observable. call cityService.cities | async in order to loop the array
+   * Can also be reached by this.variable = cityService.citeis;
+   * Or cityService.citites.subscribe(city => this.city = city);
+   */
   get cities() {
     return of(this._cities);
   }
 
-  // setCity(id: any) {
-  //   this.httpService.getCity(id)
-  //   .subscribe((data) => {
-  //     this.subject.next(data)
-  //   })
-  // }
+  get city() {
+    return of(this._city);
+  }
+    
+  getCities(): Observable<any> {
+    this.httpService.getCities().subscribe((data:any) => {
+      this.subject.next(data);
+    });
+    return this.subject.asObservable();
+  }
 
-  // onSet(): Observable<any> {
-  //   return this.subject.asObservable();
-  // }
-
-  getCities() {
+  loadCitites() {
     this.httpService.getCities().subscribe((data:any) => {
       this._cities = data;
     })

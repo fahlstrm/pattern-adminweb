@@ -9,13 +9,13 @@ import { Scooter } from '../Scooter';
 })
 export class ScooterService {
 
-  allScooters: any = [];
-  private allScootersSubject: Subject<any> = new Subject<any>();
-    private subject = new Subject<any>();
+  private _scooters: any = [];
+
+  private subject = new Subject<any>();
 
 
   constructor(private httpService: HttpService, private http: HttpClient ) {
-    // this.getScooters();
+    this.loadScooters();
   }
 
 
@@ -30,8 +30,17 @@ export class ScooterService {
     //   })
     //   return this._scooters;
     // }
+      get scooters() {
+        return of(this._scooters);
+      }
 
-    
+    loadScooters() {
+      this.httpService.getScooters().subscribe((data:any) => {
+        this._scooters = data;
+      })
+      return this._scooters;
+    }
+
     getScooters(): Observable<any> {
       this.httpService.getScooters().subscribe((data:any) => {
         this.subject.next(data);

@@ -15,20 +15,27 @@ import { Scooter } from '../../../Scooter';
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
-  curr_city: any = [];
-  city_name: string = ``;
+  city: any = [];
+  cities: any = [];
   scooters: Scooter[] = [];
   scooterSubscription: Subscription;
+  // citySubscription: Subscription;
 
   constructor(
     public cityService: CityService,
     public scooterService: ScooterService,
     public router: ActivatedRoute
   ) { 
-      
+
+    
+    cityService.cities.subscribe((city: any) => {
+      this.city = city.filter((city:any) => {
+        city.name == this.cities.name;
+      });
+    });
+
     this.scooterSubscription = this.scooterService.getScooters().subscribe(
       (scooter :any ) => {
-        console.log(scooter)
         this.scooters = scooter }
       );
   }
@@ -36,13 +43,19 @@ export class CityComponent implements OnInit {
   ngOnInit(): void {
     //Check city by active route 
     this.router.params.subscribe((params: any) => {
-      this.city_name = params.name;
-      this.curr_city = this.cityService._cities.filter((city:any) => city.name == params.name);
+      this.cities = params;
     })
+  }
+    // this.router.params.subscribe((params: any) => {
+    //   this.city_name = params.name;
+    //   this.curr_city = this.cityService._cities.filter((city:any) => city.name == params.name);
+    // })
   
     // this.scooters = this.scooterService._scooters.filter((scooter: any) => scooter.city_id == this.curr_city[0].id);
     // this.scooterService.startScooterSubscription().subscribe((scooter: any) => {
     //   this.scooters = scooter;
     // });
-  }
+
 }
+
+ 

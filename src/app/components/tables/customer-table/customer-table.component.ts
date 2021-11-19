@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { CustomerTableDataSource, CustomerTableItem } from './customer-table-datasource';
+import { CustomerService } from 'src/app/services/customer.service'; 
+
 
 @Component({
   selector: 'app-customer-table',
@@ -16,15 +18,28 @@ export class CustomerTableComponent implements AfterViewInit {
   dataSource: CustomerTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'username', 'funds', 'paymentTerms'];
 
-  constructor() {
+  constructor(public customerService: CustomerService) {
     this.dataSource = new CustomerTableDataSource();
+  }
+
+  
+  //Gets data from scooterService 
+  refresh(): void{
+    this.customerService.getUsers().subscribe(resources => {
+      this.dataSource.data = resources; 
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    });
+    this.table.renderRows();
   }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+    this.refresh();
+
   }
 }

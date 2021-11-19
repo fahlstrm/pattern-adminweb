@@ -6,29 +6,30 @@ import { HttpService } from './http.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
-  private _users: any = [];
+export class StationService {
+  private _stations: any = [];
   private subject = new Subject<any>();
 
   constructor(private httpService: HttpService, private http: HttpClient) {
-    this.loadUsers();
-  }  
-
-  get users() {
-    return of(this._users);
+    this.loadStations();
   }
 
-  loadUsers() {
-    this.httpService.getUsers().subscribe((data:any) => {
-      this._users = data;
+  get stations() {
+    return of(this._stations);
+  }
+
+  loadStations() {
+    this.httpService.getStations().subscribe((data:any) => {
+      this._stations = data;
     })
-    return this._users;
+    return this._stations;
   }
 
-  getUsers(): Observable<any> {
-    this.httpService.getUsers().subscribe((data:any) => {
+  getStations(): Observable<any> {
+    this.httpService.getStations().subscribe((data:any) => {
       this.subject.next(data);
     });
     return this.subject.asObservable();
   }
+
 }

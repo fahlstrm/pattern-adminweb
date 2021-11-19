@@ -13,7 +13,7 @@ export class MapComponent implements OnInit {
 
   cityCenter = latLng([58.396830, 13.853019]);
   
-  @Input() curr_city: any;
+  @Input() city: any;
   @Input() scooters: any;
 
   // Base layers
@@ -60,12 +60,11 @@ export class MapComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.cityCenter = latLng([this.curr_city[0].lat_center, this.curr_city[0].lon_center]);
-    // this.addMapContent();
+    this.cityCenter = latLng([this.city[0].lat_center, this.city[0].lon_center]);
   }
 
   ngOnChanges() {
-    console.log("i ngDoCheck" , this.scooters)
+    // console.log("i ngDoCheck" , this.scooters)
     this.addMapContent();
   }
 

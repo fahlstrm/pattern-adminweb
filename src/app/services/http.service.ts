@@ -18,4 +18,13 @@ export class HttpService {
   getScooters() {
     return this.http.get<any>(`${this.baseUrl}/scooters`);
   }
+
+  getStations() {
+    return this.http.get<any>(`${this.baseUrl}/stations`);
+  }
+
+  getUsers() {
+    return this.http.get<any>(`${this.baseUrl}/users`);
+  }
+
 }
