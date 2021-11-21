@@ -28,6 +28,18 @@ export class CityService {
   get city() {
     return of(this._city);
   }
+
+  
+  setCity(name: string) {
+    this._city = this._cities.filter((city:any) => {
+      return city.name == name
+    })
+    this.subject.next(this._city)
+  }
+
+  onSet(): Observable<any> {
+    return this.subject.asObservable();
+  }
     
   getCities(): Observable<any> {
     this.httpService.getCities().subscribe((data:any) => {

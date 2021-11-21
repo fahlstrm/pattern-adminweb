@@ -20,19 +20,20 @@ export class StationTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'location', 'type'];
 
-  @Input() city: any;
+
   @Input() scooters: any;
 
 
   constructor(public stationService: StationService,) {
     this.dataSource = new StationTableDataSource();
+
   }
 
   
   //Gets data from stationsService 
   refresh(): void{
-    this.stationService.getStations().subscribe(resources => {
-      this.dataSource.data = resources; 
+    this.stationService.getStations().subscribe(data => {
+      this.dataSource.data = data; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;

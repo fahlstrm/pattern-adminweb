@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable, of} from "rxjs";
+import { Subject, Observable, BehaviorSubject, of, Subscription} from "rxjs";
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from './http.service';
+import { CityService } from './city.service';
 import { Scooter } from '../Scooter';
 
 @Injectable({
@@ -12,44 +13,59 @@ export class ScooterService {
   private _scooters: any = [];
 
   private subject = new Subject<any>();
+  city: any = []; 
+  citySubscrition: Subscription;
 
-
-  constructor(private httpService: HttpService, private http: HttpClient ) {
-    this.loadScooters();
+  constructor(
+    private httpService: HttpService,
+    private cityService: CityService,
+    private http: HttpClient ) {
+    this.citySubscrition = this.cityService.onSet().subscribe(city => {
+      this.city = city;
+      this.getScooters();
+    })
+    this.getScooters();
   }
 
 
-    // //Will return _cites as an Observable. call cityService.cities | async in order to loop the array
-    // get scooters() {
-    //   return of(this._scooters);
-    // }
+  getScooters() {
+    if(this.city.length != 0) {
+      console.log("HÄMTAR", this.city[0].name)
 
-    // getScooters()  {
-    //   this.httpService.getScooters().subscribe((data:any) => {
-    //     this._scooters = data;
-    //   })
-    //   return this._scooters;
-    // }
-      get scooters() {
-        return of(this._scooters);
-      }
-
-    loadScooters() {
-      this.httpService.getScooters().subscribe((data:any) => {
-        this._scooters = data;
-      })
-      return this._scooters;
+      this.httpService.getScooters(this.city[0].id).subscribe(
+        (data:any) => {
+          this.subject.next(data)
+        }
+      )
     }
+    return this.subject.asObservable();
+  }
 
-    getScooters(): Observable<any> {
-      this.httpService.getScooters().subscribe((data:any) => {
-        this.subject.next(data);
-      });
-      return this.subject.asObservable();
-    }
-    // startScooterSubscription(): void  {
-    //   this.http.get<any>(`${this.httpService.baseUrl}/scooters`);
-    //   this.allScootersSubject.next(this.allScooters)
-    // }
+  // getScooters() {
+  //   if (this.city.length != 0) {
+  //     console.log("HÄMTAR", this.city[0].name)
+  //     return this.httpService.getScooters(this.city[0].id);
+  //   } else {
+  //     console.log("Hämtar alla scooters")
+  //     return this.httpService.getAllScooters();
+  //   }
+  // }
 
+  
+  // getScooters(): Observable<any> {
+  //   if (this.city.length != 0) {
+  //     console.log("HÄMTAR")
+  //     this.httpService.getScooters(this.city[0].id)
+  //       .subscribe((data:any) => {
+  //       this.scooters.next(data);
+  //     });
+  //   } else {
+  //     this.httpService.getAllScooters()
+  //       .subscribe((data:any) => {
+  //         this.scooters.next(data);
+  //     });
+  //   }
+  //   return this.scooters.asObservable();
+
+  // }
 }

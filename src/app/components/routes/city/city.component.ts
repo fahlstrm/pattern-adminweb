@@ -17,9 +17,10 @@ import { Scooter } from '../../../Scooter';
 export class CityComponent implements OnInit {
   city: any = [];
   cities: any = [];
+  cityName: any = ``;
   scooters: Scooter[] = [];
-  scooterSubscription: Subscription;
-  // citySubscription: Subscription;
+  // scooterSubscription: Subscription;
+  citySubscription: Subscription;
 
   constructor(
     public cityService: CityService,
@@ -27,25 +28,26 @@ export class CityComponent implements OnInit {
     public router: ActivatedRoute
   ) { 
 
-    
-    cityService.cities.subscribe((city: any) => {
-      this.city = city.filter((city:any) => {
-        city.name == this.cities.name;
-      });
-    });
-
-    this.scooterSubscription = this.scooterService.getScooters().subscribe(
-      (scooter :any ) => {
-        this.scooters = scooter }
-      );
+    this.citySubscription = this.cityService.onSet().subscribe(
+      (city :any ) => {
+        this.city = city 
+      }
+    );
   }
 
   ngOnInit(): void {
     //Check city by active route 
     this.router.params.subscribe((params: any) => {
-      this.cities = params;
+      this.cityName = params.name;
+      this.cityService.setCity(this.cityName);
     })
   }
+
+  // ngDoCheck() {
+  //   this.ngOnInit();
+  // }
+
+
     // this.router.params.subscribe((params: any) => {
     //   this.city_name = params.name;
     //   this.curr_city = this.cityService._cities.filter((city:any) => city.name == params.name);

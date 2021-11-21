@@ -7,6 +7,8 @@ import { ScooterTableDataSource, ScooterTableItem } from './scooter-table-dataso
 import { MatTableDataSource } from '@angular/material/table';
 import { ScooterService } from 'src/app/services/scooter.service'; 
 import { ScooterDialogComponent } from '../../utils/dialogs/scooter-dialog/scooter-dialog.component';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-scooter-table',
@@ -17,41 +19,37 @@ export class ScooterTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<any>;
-  dataSource: ScooterTableDataSource;
+  // dataSource: ScooterTableDataSource;
+  dataSource = new MatTableDataSource<any>();
+  scooterSubscription: Subscription;
+
 
   /** Columns displayed in the table. */
   displayedColumns = ['id', 'status', 'battery_level', 'station_id'];
+  scooters: any = [];
 
-  @Input() city: any;
-  @Input() scooters: any;
-
-    
-    constructor(
+  constructor(
       public scooterService: ScooterService, 
       public dialog: MatDialog
     ) {
-    this.dataSource = new ScooterTableDataSource();
-  }
+    // this.dataSource = new ScooterTableDataSource();
 
-  //Gets data from scooterService 
-  refresh(): void{
-    this.scooterService.getScooters().subscribe(resources => {
+    this.scooterSubscription = this.scooterService.getScooters().subscribe(resources => {
+      console.log("i konstruktion", resources.length)
       this.dataSource.data = resources; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
-    });
-  }
-  
-  ngAfterViewInit(): void {
-    this.refresh();
+    })
   }
 
-  openDialog(row: any) {
-    console.log(row)
+  ngAfterViewInit(): void {
+  }
+
+  openDialog(scooter: any) {
     this.dialog.open(ScooterDialogComponent, {
-      data: row,
-      height: '400px',
+      data: scooter,
+      height: '300px',
       width: '600px',
     });
   }

@@ -19,14 +19,6 @@ export class ScooterDialogComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    console.log(this.data)
+    console.log("i dialog", this.data)
   }
-
-  
-  // closeDialog() {
-  //   this.dialogRef.close({ 
-  //     event: 'close', data: this.fromDialog });
-  //   }
-
-
 }

@@ -1,11 +1,3 @@
-<!-- <div *ngFor="let city of cities" class="content-div city-div">
-    <a routerLink="/city/{{city.name}}">
-        <img src="assets/img/{{city.name}}.jpg" alt="{{city.name}}"> 
-        <p>{{city.name}}</p>
-    </a>
-</div> -->
-
-
 <div *ngFor="let city of cityService.cities | async" class="content-div city-div">
     <a routerLink="/city/{{city.name}}">
         <img src="assets/img/city/{{city.name}}.jpg" alt="{{city.name}}"> 
