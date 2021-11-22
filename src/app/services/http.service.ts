@@ -24,8 +24,12 @@ export class HttpService {
     return this.http.get<any>(`${this.baseUrl}/scooters`);
   }
 
-  getStations() {
-    return this.http.get<any>(`${this.baseUrl}/stations`);
+  getStations(city: any) {
+    return this.http.get<any>(`${this.baseUrl}/cities/${city}/stations`);
+  }
+
+  getStationScooters(station: any) {
+    return this.http.get(`${this.baseUrl}/stations/${station}/scooters`);
   }
 
   getUsers() {

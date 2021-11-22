@@ -103,19 +103,6 @@ export class MapComponent implements OnInit {
       }));
     })
   }
-
-  // addScooters() {
-  //   this.scooterService.getScooters().subscribe((data: any ) => {
-  //     this.scooters = data;
-  //     this.scooters.forEach((scooter:any) => {
-  //       this.layers.push(marker([ scooter.lat_pos, scooter.lon_pos], {
-  //           icon: this.icon
-  //         }).addEventListener("click", () => {
-  //           this.zone.run(() => this.openDialog(scooter));
-  //       }));
-  //     });
-  //   })
-  // }
   
   openDialog(scooter: any) {
     this.dialog.open(ScooterDialogComponent, {

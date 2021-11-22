@@ -23,6 +23,11 @@ import { CustomerTableComponent } from './components/tables/customer-table/custo
 import { MapComponent } from './components/utils/map/map.component';
 import { StationTableComponent } from './components/tables/station-table/station-table.component';
 import { ScooterDialogComponent } from './components/utils/dialogs/scooter-dialog/scooter-dialog.component';
+import { StationDialogComponent } from './components/utils/dialogs/station-dialog/station-dialog.component';
+import { StationScooterTableComponent } from './components/tables/station-scooter-table/station-scooter-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,8 @@ import { ScooterDialogComponent } from './components/utils/dialogs/scooter-dialo
     MapComponent,
     StationTableComponent,
     ScooterDialogComponent,
+    StationDialogComponent,
+    StationScooterTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,10 @@ import { ScooterDialogComponent } from './components/utils/dialogs/scooter-dialo
     HttpClientModule,
     MaterialModule,
     LeafletModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

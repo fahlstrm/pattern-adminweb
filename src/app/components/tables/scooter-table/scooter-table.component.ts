@@ -33,9 +33,7 @@ export class ScooterTableComponent implements AfterViewInit {
       public dialog: MatDialog
     ) {
     // this.dataSource = new ScooterTableDataSource();
-
     this.scooterSubscription = this.scooterService.getScooters().subscribe(resources => {
-      console.log("i konstruktion", resources.length)
       this.dataSource.data = resources; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
