@@ -5,6 +5,8 @@ import { ScooterDialogComponent } from '../../utils/dialogs/scooter-dialog/scoot
 import { ScooterService } from 'src/app/services/scooter.service'; 
 import { Subscription } from 'rxjs';
 import { CityService } from 'src/app/services/city.service';
+import { StationService } from 'src/app/services/station.service';
+import { StationDialogComponent } from '../dialogs/station-dialog/station-dialog.component';
 
 
 @Component({
@@ -19,13 +21,16 @@ export class MapComponent implements OnInit {
   cityCenter = latLng([58.396830, 13.853019]);
   citySubscrition: Subscription;
   scooterSubscription: Subscription;
+  stationSubscription: Subscription;
   city: any = [];
   scooters: any = [];
+  stations: any = [];
 
   constructor(
       private zone: NgZone,
       public scooterService: ScooterService, 
       public cityService: CityService, 
+      public stationServce: StationService,
       public dialog: MatDialog
     ) {
       this.citySubscrition = this.cityService.onSet().subscribe(city => {
@@ -34,6 +39,11 @@ export class MapComponent implements OnInit {
       this.scooterSubscription = this.scooterService.getScooters().subscribe(resources => {
         console.log("i konstruktion", resources.length)
         this.scooters = resources;
+        this.addMapContent();
+      })
+      this.stationSubscription = this.stationServce.getStations().subscribe(resources => {
+        console.log(resources)
+        this.stations = resources;
         this.addMapContent();
       })
     }
@@ -92,6 +102,7 @@ export class MapComponent implements OnInit {
       this.wMaps
     ];
     this.addScooters();
+    this.addStations();
   }
 
   addScooters() {
@@ -99,14 +110,32 @@ export class MapComponent implements OnInit {
       this.layers.push(marker([ scooter.lat_pos, scooter.lon_pos], {
           icon: this.icon
         }).addEventListener("click", () => {
-          this.zone.run(() => this.openDialog(scooter));
+          this.zone.run(() => this.openScooterDialog(scooter));
+      }));
+    })
+  }
+
+  addStations() {
+    this.stations.forEach((station:any) => {
+      this.layers.push(marker([ station.lat_center, station.lon_center], {
+        icon: station.type == "park" ? this.parkingIcon : this.chargeIcon
+        }).addEventListener("click", () => {
+          this.zone.run(() => this.openStationDialog(station));
       }));
     })
   }
   
-  openDialog(scooter: any) {
+  openScooterDialog(scooter: any) {
     this.dialog.open(ScooterDialogComponent, {
       data: scooter,
+      height: '300px',
+      width: '600px',
+    });
+  }
+
+  openStationDialog(station: any) {
+    this.dialog.open(StationDialogComponent, {
+      data: station,
       height: '300px',
       width: '600px',
     });
