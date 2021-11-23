@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpService {
-  baseUrl = "http://localhost:8080/api";
+  baseUrl = "http://localhost:8000/api";
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +24,27 @@ export class HttpService {
     return this.http.get<any>(`${this.baseUrl}/scooters`);
   }
 
+  async getOneScooter(scooter: any) {
+    return this.http.get(`${this.baseUrl}/scooters/${scooter.id}`);
+  }
+
+  putScooter(scooter: any) {
+    let body = {
+      "status": scooter.status
+    }
+    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
+    .subscribe({
+      next: res => {
+        return "hej"
+      },
+      error: error => {
+        console.error('There was an error!', error);
+        console.log("ERROR")
+      }
+    });
+  }
+
+
   getStations(city: any) {
     return this.http.get<any>(`${this.baseUrl}/cities/${city}/stations`);
   }
@@ -32,7 +53,9 @@ export class HttpService {
     return this.http.get(`${this.baseUrl}/stations/${station}/scooters`);
   }
 
+
   getUsers() {
     return this.http.get<any>(`${this.baseUrl}/users`);
   }
+
 }

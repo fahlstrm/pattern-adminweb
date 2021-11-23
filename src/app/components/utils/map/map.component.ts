@@ -79,6 +79,8 @@ export class MapComponent implements OnInit {
     // shadowUrl: 'leaflet/marker-shadow.png'
   })
 
+
+
     
   options = {
     zoom: 10,
@@ -108,7 +110,7 @@ export class MapComponent implements OnInit {
   addScooters() {
     this.scooters.forEach((scooter:any) => {
       this.layers.push(marker([ scooter.lat_pos, scooter.lon_pos], {
-          icon: this.icon
+          icon: this.checkScooterIcon(scooter)
         }).addEventListener("click", () => {
           this.zone.run(() => this.openScooterDialog(scooter));
       }));
@@ -123,6 +125,28 @@ export class MapComponent implements OnInit {
           this.zone.run(() => this.openStationDialog(station));
       }));
     })
+  }
+
+  checkScooterIcon(scooter: any) {
+    var iconUrl;
+
+    if(scooter.customer_id != null) {
+      iconUrl = 'rented'
+    } else if (scooter.status != 'active') {
+      iconUrl = 'inactive'
+    } else if (scooter.battery_level < 20) {
+      iconUrl = 'rented';
+    } else (
+      iconUrl = 'scooter'
+    )
+
+    var scooterIcon = icon({
+      iconSize: [ 40, 40 ],
+      iconAnchor: [ 13, 41 ],
+      iconUrl: `../../../assets/img/icon/${iconUrl}.png`
+    })
+
+    return scooterIcon;
   }
   
   openScooterDialog(scooter: any) {

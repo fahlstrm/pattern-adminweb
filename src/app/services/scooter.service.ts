@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable, BehaviorSubject, of, Subscription} from "rxjs";
+import { Subject, Subscription, interval} from "rxjs";
+import { startWith, switchMap } from "rxjs/operators";
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { CityService } from './city.service';
 import { StationService } from './station.service';
-import { Scooter } from '../Scooter';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,42 @@ export class ScooterService {
   station: any = [];
   stationSubscription: Subscription;
 
+  /**
+   * Ta bort bortkommentering av polling-var nedan 
+   * inkl pollingSchooter och pollingStationScooters i konstruktorn
+   * för att aktivera polling
+   * Intervallet anger hur lång tid mellan hämtningar
+   */
+  pollingScooters: Subscription;
+  pollingStationScooters: Subscription;
+
   constructor(
     private httpService: HttpService,
     private cityService: CityService,
     private stationService: StationService,
     private http: HttpClient ) {
+
+
+  this.pollingScooters = interval(10000)
+  .pipe(
+    startWith(0),
+    switchMap(() => this.getScooters())
+    ).subscribe(
+      scooters => {
+        console.log("Hämtar scootrar:", scooters.length)
+      }
+    )   
+
+    this.pollingStationScooters = interval(10000)
+    .pipe(
+      startWith(0),
+      switchMap(() => this.getScooters())
+      ).subscribe(
+        scooters => {
+          console.log("Hämtar scootrar:", scooters.length)
+        }
+    ) 
+ 
     this.citySubscrition = this.cityService.onSet().subscribe(city => {
       this.city = city;
       this.getScooters();
@@ -66,33 +97,10 @@ export class ScooterService {
     return this.stationScooters.asObservable();
   }
 
+  changeScooterStatus(scooter: any) {
+    console.log("scooter att ändra", scooter)
 
 
-  // getScooters() {
-  //   if (this.city.length != 0) {
-  //     console.log("HÄMTAR", this.city[0].name)
-  //     return this.httpService.getScooters(this.city[0].id);
-  //   } else {
-  //     console.log("Hämtar alla scooters")
-  //     return this.httpService.getAllScooters();
-  //   }
-  // }
-
-  
-  // getScooters(): Observable<any> {
-  //   if (this.city.length != 0) {
-  //     console.log("HÄMTAR")
-  //     this.httpService.getScooters(this.city[0].id)
-  //       .subscribe((data:any) => {
-  //       this.scooters.next(data);
-  //     });
-  //   } else {
-  //     this.httpService.getAllScooters()
-  //       .subscribe((data:any) => {
-  //         this.scooters.next(data);
-  //     });
-  //   }
-  //   return this.scooters.asObservable();
-
-  // }
+    this.httpService.putScooter(scooter);
+  }
 }

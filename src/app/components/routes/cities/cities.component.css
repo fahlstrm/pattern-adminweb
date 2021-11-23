@@ -11,7 +11,7 @@
 }
 
 .city-div p {
-    color: rgb(180, 177, 177);
+    color: white;
     text-decoration: none;
     font-size: 3.2em;
     position: absolute;
@@ -19,4 +19,6 @@
     left: 50%;
     margin: 0;
     transform: translate(-50%, -50%);
-  }
+    background-color: rgba(128, 128, 128, 0.747);
+    padding: 2rem;
+}
