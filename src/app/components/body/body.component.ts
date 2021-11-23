@@ -11,6 +11,7 @@ export class BodyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("body component")
   }
 
   logout() {

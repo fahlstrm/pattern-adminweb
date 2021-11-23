@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { CityService } from 'src/app/services/city.service'; 
 
 import { Observable, Subscription } from 'rxjs';
@@ -6,12 +6,11 @@ import { Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-cities',
   templateUrl: './cities.component.html',
-  host: {
-    class: `grid grid-wrap`
-  }, //Added to set grid for the router-outlet components
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
+  @HostBinding('class') classes = 'grid grid-wrap';
+
   // //Ändra till City-obs? 
   cities: any;
 

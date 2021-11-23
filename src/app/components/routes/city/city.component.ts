@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { CityService } from 'src/app/services/city.service'; 
 import { ScooterService } from 'src/app/services/scooter.service'; 
 import { Subject, Subscription } from 'rxjs';
@@ -9,12 +9,11 @@ import { Scooter } from '../../../Scooter';
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
-  host: {
-    class: `grid grid-wrap`
-  }, //Added to set grid for the router-outlet components
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
+  @HostBinding('class') classes = 'grid grid-wrap';
+
   city: any = [];
   cities: any = [];
   cityName: any = ``;
