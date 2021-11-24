@@ -46,7 +46,7 @@ export class ScooterTableComponent implements AfterViewInit {
 
   openDialog(scooter: any) {
     this.dialog.open(ScooterDialogComponent, {
-      data: scooter,
+      data: scooter
     });
   }
 }

@@ -28,7 +28,7 @@ export class HttpService {
     return this.http.get(`${this.baseUrl}/scooters/${scooter.id}`);
   }
 
-  putScooter(scooter: any) {
+  changeScooterStatus(scooter: any) {
     let body = {
       "status": scooter.status
     }
@@ -44,6 +44,24 @@ export class HttpService {
     });
   }
 
+  moveScooterToPark(scooter: any) {
+    let body = {
+      "station_id": scooter.station_id,
+      "lat_pos": scooter.lat_pos,
+      "lon_pos": scooter.lon_pos,
+      "status": scooter.status
+    }
+    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
+    .subscribe({
+      next: res => {
+        return "hej"
+      },
+      error: error => {
+        console.error('There was an error!', error);
+        console.log("ERROR")
+      }
+    });
+  }
 
   getStations(city: any) {
     return this.http.get<any>(`${this.baseUrl}/cities/${city}/stations`);

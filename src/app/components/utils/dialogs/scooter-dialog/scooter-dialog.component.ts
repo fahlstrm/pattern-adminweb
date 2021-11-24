@@ -44,7 +44,11 @@ export class ScooterDialogComponent implements OnInit {
   }
 
   moveScooterToStation() {
-    console.log(this.selectedStation)
+    this.scooter.station_id = this.selectedStation.id;
+    this.scooter.lat_pos = this.selectedStation.lat_center;
+    this.scooter.lon_pos = this.selectedStation.lon_center;
+    this.scooter.status = "maintenance";
+    this.scooterService.moveScooterToPark(this.scooter);
   }
 
   setChecked() {

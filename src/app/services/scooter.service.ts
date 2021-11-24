@@ -98,10 +98,13 @@ export class ScooterService {
     return this.stationScooters.asObservable();
   }
 
+  // Ändra status till/från active/inactive
   changeScooterStatus(scooter: any) {
-    console.log("scooter att ändra", scooter)
+    this.httpService.changeScooterStatus(scooter);
+  }
 
-
-    this.httpService.putScooter(scooter);
+  //Flytta scooter till parkering
+  moveScooterToPark(scooter: any) {
+      this.httpService.moveScooterToPark(scooter);
   }
 }

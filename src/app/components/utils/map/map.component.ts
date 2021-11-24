@@ -56,12 +56,12 @@ export class MapComponent implements OnInit {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
 
-  icon = icon({
-    iconSize: [ 40, 40 ],
-    iconAnchor: [ 13, 41 ],
-    iconUrl: '../../../assets/img/icon/scooter.png',
-    // shadowUrl: 'leaflet/marker-shadow.png'
-  })
+  // icon = icon({
+  //   iconSize: [ 40, 40 ],
+  //   iconAnchor: [ 13, 41 ],
+  //   iconUrl: '../../../assets/img/icon/scooter.png',
+  //   // shadowUrl: 'leaflet/marker-shadow.png'
+  // })
 
   parkingIcon = icon({
     iconSize: [ 35, 35 ],
@@ -133,7 +133,7 @@ export class MapComponent implements OnInit {
     } else if (scooter.status != 'active') {
       iconUrl = 'inactive'
     } else if (scooter.battery_level < 20) {
-      iconUrl = 'rented';
+      iconUrl = 'battery';
     } else (
       iconUrl = 'scooter'
     )
