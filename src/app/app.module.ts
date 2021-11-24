@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 //Angular material module from modules-folder
 import { MaterialModule } from './modules/material/material.module';
@@ -51,6 +52,7 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     MaterialModule,
     LeafletModule,
     BrowserAnimationsModule,

@@ -15,17 +15,20 @@
         <h4>{{scooterOnCharge ? 'Enheten står på laddstation' : 'Flytta till laddstation'}}</h4>
         <mat-form-field  appearance="fill">
           <mat-label>Stationer</mat-label>
-          <mat-select [disabled]="scooterOnCharge" ([ngModel])="selectedStation" name="stations">
-            <mat-option *ngFor="let station of stations">
+          <mat-select   [disabled]="scooterOnCharge"
+                        [(ngModel)]="selectedStation"
+                        name="stations">
+            <mat-option>  </mat-option>
+            <mat-option *ngFor="let station of stations" [value]="station">
               {{station.location}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <p> {{scooterOnCharge ? '' : selectedStation}} </p>
       </form>
   
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial
+    (click)="moveScooterToStation()">{{ selectedStation ? 'Flytta till parkering ' + selectedStation.location : ''}}</button>
 </mat-dialog-actions>

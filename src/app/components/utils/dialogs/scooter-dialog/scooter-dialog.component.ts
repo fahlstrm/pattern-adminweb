@@ -19,6 +19,7 @@ export class ScooterDialogComponent implements OnInit {
   stations: any = [];
   selectedStation: any;
   scooterOnCharge = false;
+  
 
   constructor(
     public dialogRef: MatDialogRef<ScooterDialogComponent>,
@@ -40,6 +41,10 @@ export class ScooterDialogComponent implements OnInit {
     console.log("i dialog", this.scooter)
     this.checked = this.scooter.status == 'active' ? true  : false;
     this.disabled = this.scooter.customer_id != null ? true : false; //Toggle disabled if scooter is rented
+  }
+
+  moveScooterToStation() {
+    console.log(this.selectedStation)
   }
 
   setChecked() {
