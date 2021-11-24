@@ -1,0 +1,9 @@
+mat-dialog-container {
+    border-radius: 15px;
+}
+
+
+
+mat-dialog-content {
+    overflow: hidden;
+}
