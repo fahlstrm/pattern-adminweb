@@ -1,7 +1,7 @@
 <mat-dialog-content>
     
     <h1 mat-dialog-title>Elscooter: {{scooter.id}}</h1>
-    <p> ID: {{scooter.id}} <br> Station: {{scooter.station_id}} <br> Batterinivå: {{scooter.battery_level}}</p>
+    <p> ID: {{scooter.id}}<br> Batterinivå: {{scooter.battery_level}}</p>
     <mat-slide-toggle
         (change)=setChecked()
         class="example-margin"
@@ -9,6 +9,21 @@
         [checked]="checked">
         <p>{{checked ? 'Inaktivera' : 'Aktivera' }}</p>
     </mat-slide-toggle>
+
+    <form>
+        
+        <h4>{{scooterOnCharge ? 'Enheten står på laddstation' : 'Flytta till laddstation'}}</h4>
+        <mat-form-field  appearance="fill">
+          <mat-label>Stationer</mat-label>
+          <mat-select [disabled]="scooterOnCharge" ([ngModel])="selectedStation" name="stations">
+            <mat-option *ngFor="let station of stations">
+              {{station.location}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p> {{scooterOnCharge ? '' : selectedStation}} </p>
+      </form>
+  
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancel</button>

@@ -37,12 +37,10 @@ export class MapComponent implements OnInit {
         this.city = city;
       })
       this.scooterSubscription = this.scooterService.getScooters().subscribe(resources => {
-        console.log("i konstruktion", resources.length)
         this.scooters = resources;
         this.addMapContent();
       })
       this.stationSubscription = this.stationServce.getStations().subscribe(resources => {
-        console.log(resources)
         this.stations = resources;
         this.addMapContent();
       })
@@ -152,16 +150,12 @@ export class MapComponent implements OnInit {
   openScooterDialog(scooter: any) {
     this.dialog.open(ScooterDialogComponent, {
       data: scooter,
-      height: '300px',
-      width: '600px',
     });
   }
 
   openStationDialog(station: any) {
     this.dialog.open(StationDialogComponent, {
       data: station,
-      height: '300px',
-      width: '600px',
     });
   }
 }

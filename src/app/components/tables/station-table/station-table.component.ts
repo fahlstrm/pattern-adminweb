@@ -47,9 +47,7 @@ export class StationTableComponent implements AfterViewInit {
 
   openDialog(scooter: any) {
     this.dialog.open(StationDialogComponent, {
-      data: scooter,
-      height: '70vh',
-      width: '800px',
+      data: scooter
     });
   }
 }

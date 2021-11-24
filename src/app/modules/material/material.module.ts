@@ -7,7 +7,8 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table'; //ta
 import {MatButtonModule} from '@angular/material/button'; //button 
 import {MatIconModule} from '@angular/material/icon'; // icon 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; // toggle
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const MaterialComponents = [
     MatButtonModule,
@@ -16,7 +17,9 @@ const MaterialComponents = [
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatFormFieldModule
   ]
   
   @NgModule({
