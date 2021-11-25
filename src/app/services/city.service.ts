@@ -9,8 +9,7 @@ import { HttpService } from './http.service';
 export class CityService {
   private subject = new Subject<any>();
   private _cities: any = [];
-  private _city: string = ``;
-  // cities: any = [];
+  private _city = ``;
 
   constructor(private httpService: HttpService) { 
     this.loadCitites();
@@ -21,16 +20,16 @@ export class CityService {
    * Can also be reached by this.variable = cityService.citeis;
    * Or cityService.citites.subscribe(city => this.city = city);
    */
-  get cities() {
+  get cities(): any {
     return of(this._cities);
   }
 
-  get city() {
+  get city(): any {
     return of(this._city);
   }
 
   
-  setCity(name: string) {
+  setCity(name: string): any {
     this._city = this._cities.filter((city:any) => {
       return city.name == name
     })
@@ -48,7 +47,7 @@ export class CityService {
     return this.subject.asObservable();
   }
 
-  loadCitites() {
+  loadCitites(): any {
     this.httpService.getCities().subscribe((data:any) => {
       this._cities = data;
     })

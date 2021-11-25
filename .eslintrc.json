@@ -1,8 +1,12 @@
 {
   "root": true,
   "ignorePatterns": [
-    "projects/**/*"
+    "projects/**/*",
+    "*.spec.ts",
+    "main.ts",
+    "test.ts"
   ],
+  
   "overrides": [
     {
       "files": [
@@ -16,9 +20,17 @@
       },
       "extends": [
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "eslint:recommended",  
+        "plugin:@typescript-eslint/recommended"
       ],
       "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-module-boundary-types": ["warn", {
+          "allowArgumentsExplicitlyTypedAsAny": true
+        }],
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -34,7 +46,12 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/no-empty-lifecycle-method": "off"
+      },
+      "env": {
+        "browser": true,
+        "node": true
       }
     },
     {

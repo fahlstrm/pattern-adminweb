@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Subject, Subscription, interval} from "rxjs";
+import { Subject, Subscription, Observable, interval} from "rxjs";
 import { startWith, switchMap } from "rxjs/operators";
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { CityService } from './city.service';
 import { StationService } from './station.service';
 
+
+/**
+ * OM POLLING ÄR BORTKOMMENTERAT KOMMER LINTER KLAGA PÅ ATT interval
+ * startWith och switchMap är överflödiga - TA EJ BORT DESSA 
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ScooterService {
-
-  private _scooters: any = [];
-
   private subject = new Subject<any>();
   private stationScooters = new Subject<any>();
   city: any = []; 
   citySubscrition: Subscription;
-
   station: any = [];
   stationSubscription: Subscription;
 
@@ -72,7 +73,7 @@ export class ScooterService {
 
 
 
-  getScooters() {
+  getScooters(): Observable<any> {
     if(this.city.length != 0) {
       console.log("HÄMTAR", this.city[0].name)
 
@@ -85,7 +86,7 @@ export class ScooterService {
     return this.subject.asObservable();
   }
 
-  getStationScooters() {
+  getStationScooters(): any {
     if(this.city.length != 0) {
       console.log("HÄMTAR", this.station)
 
@@ -99,12 +100,12 @@ export class ScooterService {
   }
 
   // Ändra status till/från active/inactive
-  changeScooterStatus(scooter: any) {
+  changeScooterStatus(scooter: any): any {
     this.httpService.changeScooterStatus(scooter);
   }
 
   //Flytta scooter till parkering
-  moveScooterToPark(scooter: any) {
-      this.httpService.moveScooterToPark(scooter);
+  moveScooterToPark(scooter: any): any {
+      this.httpService.moveScooterToPark(scooter)
   }
 }

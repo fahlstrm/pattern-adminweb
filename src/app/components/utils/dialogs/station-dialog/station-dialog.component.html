@@ -1,6 +1,6 @@
 <mat-dialog-content>
     <h1 mat-dialog-title> {{data.location}} {{data.id}}</h1>
-    <h2> {{data.type == 'charge' ? 'Laddstation' : 'Parkering'}} </h2>
+    <h2> {{data.type === 'charge' ? 'Laddstation' : 'Parkering'}} </h2>
     <app-station-scooter-table></app-station-scooter-table>
 </mat-dialog-content>
 <mat-dialog-actions>

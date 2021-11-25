@@ -76,10 +76,7 @@ export class MapComponent implements OnInit {
     iconUrl: '../../../assets/img/icon/charge.png',
     // shadowUrl: 'leaflet/marker-shadow.png'
   })
-
-
-
-    
+ 
   options = {
     zoom: 10,
     center: this.cityCenter

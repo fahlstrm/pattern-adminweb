@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, Subscription, Observable, of} from "rxjs";
-import { HttpClient } from '@angular/common/http';
+import { Subject, Subscription, Observable } from "rxjs";
 import { HttpService } from './http.service';
 import { CityService } from './city.service';
 
@@ -16,8 +15,7 @@ export class StationService {
   citySubscrition: Subscription;
 
   constructor(
-    private httpService: HttpService, 
-    private http: HttpClient,
+    private httpService: HttpService,
     private cityService: CityService,
     ) {
     this.citySubscrition = this.cityService.onSet().subscribe(city => {
@@ -26,20 +24,8 @@ export class StationService {
     })
     this.getStations();
   }
-
-  // get stations() {
-  //   return of(this._stations);
-  // }
-
-  // loadStations() {
-  //   this.httpService.getStations().subscribe((data:any) => {
-  //     this._stations = data;
-  //   })
-  //   return this._stations;
-  // }
-
   
-  getStations() {
+  getStations(): Observable<any> {
     if(this.city.length != 0) {
       console.log("HÄMTAR STATIONER", this.city[0].name)
 
@@ -53,7 +39,7 @@ export class StationService {
   }
 
     
-  setStation(station: any) {
+  setStation(station: any): any  {
     console.log("setStation", station)
     this._station = station;
     this.station.next(this._station)
@@ -63,13 +49,5 @@ export class StationService {
   onSet(): Observable<any> {
     return this.station.asObservable();
   }
-
-
-  // getStations(): Observable<any> {
-  //   this.httpService.getStations().subscribe((data:any) => {
-  //     this.subject.next(data);
-  //   });
-  //   return this.subject.asObservable();
-  // }
 
 }
