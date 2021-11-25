@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, NgZone } from '@angular/core';
-import { icon, latLng, Map, marker, point, polyline, tileLayer } from 'leaflet';
+import { AfterViewInit, Component, NgZone } from '@angular/core';
+import { icon, latLng, marker, tileLayer } from 'leaflet';
 import { MatDialog } from '@angular/material/dialog';
 import { ScooterDialogComponent } from '../../utils/dialogs/scooter-dialog/scooter-dialog.component';
 import { ScooterService } from 'src/app/services/scooter.service'; 
@@ -14,7 +14,7 @@ import { StationDialogComponent } from '../dialogs/station-dialog/station-dialog
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements AfterViewInit {
   layers!: Array<any>
   // cityCenter: any = ``;
 
@@ -82,15 +82,11 @@ export class MapComponent implements OnInit {
     center: this.cityCenter
   };
 
-
-  ngOnInit(): void {
-  }
-
   ngAfterViewInit(): void {
     this.addMapContent();
   }
 
-  addMapContent() {
+  addMapContent(): void {
     this.cityCenter = latLng([this.city[0].lat_center, this.city[0].lon_center]);
     
     // Add marker to base layer
@@ -102,7 +98,7 @@ export class MapComponent implements OnInit {
     this.addStations();
   }
 
-  addScooters() {
+  addScooters(): void {
     this.scooters.forEach((scooter:any) => {
       this.layers.push(marker([ scooter.lat_pos, scooter.lon_pos], {
           icon: this.checkScooterIcon(scooter)
@@ -112,7 +108,7 @@ export class MapComponent implements OnInit {
     })
   }
 
-  addStations() {
+  addStations(): void {
     this.stations.forEach((station:any) => {
       this.layers.push(marker([ station.lat_center, station.lon_center], {
         icon: station.type == "park" ? this.parkingIcon : this.chargeIcon
@@ -122,8 +118,8 @@ export class MapComponent implements OnInit {
     })
   }
 
-  checkScooterIcon(scooter: any) {
-    var iconUrl;
+  checkScooterIcon(scooter: any): any {
+    let iconUrl;
 
     if(scooter.customer_id != null) {
       iconUrl = 'rented'
@@ -135,7 +131,7 @@ export class MapComponent implements OnInit {
       iconUrl = 'scooter'
     )
 
-    var scooterIcon = icon({
+    const scooterIcon = icon({
       iconSize: [ 40, 40 ],
       iconAnchor: [ 13, 41 ],
       iconUrl: `../../../assets/img/icon/${iconUrl}.png`
@@ -144,13 +140,13 @@ export class MapComponent implements OnInit {
     return scooterIcon;
   }
   
-  openScooterDialog(scooter: any) {
+  openScooterDialog(scooter: any): void {
     this.dialog.open(ScooterDialogComponent, {
       data: scooter,
     });
   }
 
-  openStationDialog(station: any) {
+  openStationDialog(station: any): void {
     this.dialog.open(StationDialogComponent, {
       data: station,
     });

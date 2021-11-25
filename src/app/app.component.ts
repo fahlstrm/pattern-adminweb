@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'adminweb';
-  auth: boolean = false; //Adjusts commercial view or logged in view with nav in body-component
-
+  auth = false; //Adjusts commercial view or logged in view with nav in body-component
 }

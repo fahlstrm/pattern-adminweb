@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSelect } from '@angular/material/select';
 import { ScooterService } from 'src/app/services/scooter.service';
 import { StationService } from 'src/app/services/station.service'; 
 import { Subscription } from 'rxjs';
@@ -29,7 +28,7 @@ export class ScooterDialogComponent implements OnInit {
     ) {
       this.stationSubscription = this.stationService.getStations().subscribe(resources => {
         this.stations = resources.filter((station: any) => station.type == 'charge');
-        for (let station of this.stations) {
+        for (const station of this.stations) {
           if (station.id == this.scooter.station_id) {
             this.scooterOnCharge = true; 
           }
@@ -38,12 +37,11 @@ export class ScooterDialogComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    console.log("i dialog", this.scooter)
     this.checked = this.scooter.status == 'active' ? true  : false;
     this.disabled = this.scooter.customer_id != null ? true : false; //Toggle disabled if scooter is rented
   }
 
-  moveScooterToStation() {
+  moveScooterToStation(): void {
     this.scooter.station_id = this.selectedStation.id;
     this.scooter.lat_pos = this.selectedStation.lat_center;
     this.scooter.lon_pos = this.selectedStation.lon_center;
@@ -51,7 +49,7 @@ export class ScooterDialogComponent implements OnInit {
     this.scooterService.moveScooterToPark(this.scooter);
   }
 
-  setChecked() {
+  setChecked(): void {
     this.checked = !this.checked;
     console.log(this.scooter.status)
     if (this.scooter.status == "active") {

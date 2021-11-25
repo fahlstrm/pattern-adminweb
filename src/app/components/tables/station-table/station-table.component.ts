@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { StationTableDataSource, StationTableItem } from './station-table-datasource';
+// import { StationTableDataSource, StationTableItem } from './station-table-datasource';
 import { StationService } from 'src/app/services/station.service'; 
 import { Subscription } from 'rxjs';
 import { StationDialogComponent } from '../../utils/dialogs/station-dialog/station-dialog.component';
@@ -45,7 +45,7 @@ export class StationTableComponent implements AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  openDialog(scooter: any) {
+  openDialog(scooter: any): void {
     this.dialog.open(StationDialogComponent, {
       data: scooter,
       height: "90vh"

@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   @HostBinding('class') classes = 'grid grid-wrap';
 
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

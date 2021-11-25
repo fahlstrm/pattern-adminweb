@@ -86,7 +86,7 @@ export class ScooterService {
     return this.subject.asObservable();
   }
 
-  getStationScooters(): any {
+  getStationScooters(): Observable<any> {
     if(this.city.length != 0) {
       console.log("HÄMTAR", this.station)
 

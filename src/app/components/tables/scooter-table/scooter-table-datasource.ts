@@ -3,9 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { ScooterService } from 'src/app/services/scooter.service';
 
-// TODO: Replace this with your own data model type
 export interface ScooterTableItem {
   status: string;
   id: number;
@@ -18,6 +16,7 @@ const EXAMPLE_DATA: ScooterTableItem[] = [
   // {id: 1, status: 'active', battery_level: 68, station_id: 5},
   // {id: 2, status: 'active', battery_level: 8, station_id: 6},
 ]
+
 /**
  * Data source for the ScooterTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data

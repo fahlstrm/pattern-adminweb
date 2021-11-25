@@ -8,13 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BodyComponent implements OnInit {
   @Input() auth: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     console.log("body component")
   }
 
-  logout() {
+  logout():void 
+   {
     console.log("logga ut")
   }
 

@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
-import { StationScooterTableDataSource, StationScooterTableItem } from './station-scooter-table-datasource';
+import { StationScooterTableItem } from './station-scooter-table-datasource';
 import { Subscription } from 'rxjs';
 import { ScooterService } from 'src/app/services/scooter.service';
 
@@ -21,7 +21,6 @@ export class StationScooterTableComponent implements AfterViewInit {
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'status', 'battery_level', 'station_id'];
-
 
   constructor(
     public scooterService: ScooterService,

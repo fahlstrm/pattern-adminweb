@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, ViewChild, Input, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { ScooterTableDataSource, ScooterTableItem } from './scooter-table-datasource';
+// import { ScooterTableDataSource, ScooterTableItem } from './scooter-table-datasource';
 import { MatTableDataSource } from '@angular/material/table';
 import { ScooterService } from 'src/app/services/scooter.service'; 
 import { ScooterDialogComponent } from '../../utils/dialogs/scooter-dialog/scooter-dialog.component';
@@ -44,7 +44,7 @@ export class ScooterTableComponent implements AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  openDialog(scooter: any) {
+  openDialog(scooter: any): void {
     this.dialog.open(ScooterDialogComponent, {
       data: scooter
     });

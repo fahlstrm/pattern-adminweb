@@ -1,8 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { CityService } from 'src/app/services/city.service'; 
 
-import { Observable, Subscription } from 'rxjs';
-
 @Component({
   selector: 'app-cities',
   templateUrl: './cities.component.html',

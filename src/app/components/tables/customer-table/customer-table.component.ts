@@ -39,7 +39,7 @@ export class CustomerTableComponent implements AfterViewInit {
     this.refresh();
   }
 
-  onClick(row: any) {
+  onClick(row: any): void {
     console.log(row)
   }
 }
