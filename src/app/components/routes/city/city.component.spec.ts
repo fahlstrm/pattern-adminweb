@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CityComponent } from './city.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('CityComponent', () => {
   let component: CityComponent;
@@ -8,7 +10,9 @@ describe('CityComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CityComponent ]
+      declarations: [ CityComponent ],
+      imports: [ HttpClientTestingModule],
+      providers: [ActivatedRoute]
     })
     .compileComponents();
   });

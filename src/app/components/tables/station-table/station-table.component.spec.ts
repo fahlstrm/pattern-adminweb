@@ -5,6 +5,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { StationTableComponent } from './station-table.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('StationTableComponent', () => {
   let component: StationTableComponent;
@@ -18,6 +20,8 @@ describe('StationTableComponent', () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
+        HttpClientTestingModule,
+        MatDialogModule
       ]
     }).compileComponents();
   }));

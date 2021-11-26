@@ -3,8 +3,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-
 import { ScooterTableComponent } from './scooter-table.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('ScooterTableComponent', () => {
   let component: ScooterTableComponent;
@@ -18,6 +19,8 @@ describe('ScooterTableComponent', () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
+        HttpClientTestingModule,
+        MatDialogModule
       ]
     }).compileComponents();
   }));

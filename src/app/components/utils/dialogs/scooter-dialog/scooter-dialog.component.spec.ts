@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogRef } from '@angular/material/dialog';
 import { ScooterDialogComponent } from './scooter-dialog.component';
 
 describe('ScooterDialogComponent', () => {
@@ -8,7 +8,8 @@ describe('ScooterDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScooterDialogComponent ]
+      declarations: [ ScooterDialogComponent ],
+      providers: [ MatDialogRef ]
     })
     .compileComponents();
   });
