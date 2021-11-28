@@ -98,7 +98,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverageExclude": [
+              "src/app/components/tables/customer-table/customer-table-datasource.ts"
+            ]
           }
         },
         "lint": {
