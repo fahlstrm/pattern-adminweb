@@ -24,7 +24,7 @@ export class HttpService {
   }
 
   getOneScooter(scooter: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}/scooters/${scooter.id}`);
+    return this.http.get<any>(`${this.baseUrl}/scooters/${scooter.id}`);
   }
 
   changeScooterStatus(scooter: any): any {
