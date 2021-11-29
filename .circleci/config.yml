@@ -15,6 +15,4 @@ jobs:
           paths:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - test:
-          post:
-            - npm run codecov
+      - run: npm run codecov
