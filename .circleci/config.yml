@@ -8,7 +8,6 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-
       - restore_cache:
           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
@@ -17,8 +16,4 @@ jobs:
           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
-      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-
-      - run: npm run codecov --disable=gcov
-          - codecov/upload
-          file: ./coverage/lcov.info
+      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
