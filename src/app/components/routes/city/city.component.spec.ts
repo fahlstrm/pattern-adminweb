@@ -27,7 +27,12 @@ describe('CityComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ CityComponent ],
       imports: [ HttpClientTestingModule],
-      providers: [{provide: ActivatedRoute, useValue: mockRoute}, {provide: CityService, useValue: cityStub}]
+      providers: [{provide: ActivatedRoute,
+        useValue: {
+          params: of({
+            bookId: "lund",
+          }),
+        },}, {provide: CityService, useValue: cityStub}]
     })
     .compileComponents();
   });
@@ -38,11 +43,9 @@ describe('CityComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   component.city = {"id":1, "name": "Uppsala", "lat_center":"58.399560","lon_center":"13.723922"};
-  //   fixture.detectChanges();
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
   // it('should get cities on init', () => {
   //   expect(component.city).toContain({"id":1, "name": "Uppsala", "lat_center":"58.399560","lon_center":"13.723922"})
