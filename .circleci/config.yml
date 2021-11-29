@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  codecov: codecov/codecov@1.0.2
 jobs:
   build:
     working_directory: ~/my-project
@@ -15,4 +17,6 @@ jobs:
           paths:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - run: npm run codecov
+      - run: npm run codecov --disable=gcov
+      - codecov/upload:
+          file: {{ coverage_report_filepath }}
