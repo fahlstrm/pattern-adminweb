@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master.svg?style=svg)](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master)
+
 # Adminweb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
