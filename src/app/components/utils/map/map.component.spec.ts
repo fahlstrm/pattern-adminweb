@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { latLng } from 'leaflet';
+import { icon } from 'leaflet';
 import { of } from 'rxjs';
 import { CityService } from 'src/app/services/city.service';
 import { ScooterService } from 'src/app/services/scooter.service';
@@ -29,10 +29,12 @@ describe('MapComponent', () => {
       onSet: () => of()
     }
     scootersStub = {
-      getScooters: () => of([{"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"}])
+      getScooters: () => of([{"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"}]),
+      getStationScooters: () => of([{"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"}]),
+      onSet: () => of()
     }
     cityStub = {
-      onSet: () => of([{"id":1, "name": "Uppsala", "lat_center":"58.399560","lon_center":"13.723922"}])
+      onSet: () => of([{"id": 1, "name": "Uppsala", "lat_center":"58.399560","lon_center":"13.723922"}])
     }
     await TestBed.configureTestingModule({
       declarations: [ MapComponent ],
@@ -54,4 +56,34 @@ describe('MapComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should open and close scooter dialog', () => {
+    spyOn(component.dialog, 'open');
+    component.openScooterDialog(1);
+    expect(component.dialog.open).toHaveBeenCalled();
+    }
+  );
+
+  it('should open and close station dialog', () => {
+    spyOn(component.dialog, 'open');
+    component.openStationDialog(1);
+    expect(component.dialog.open).toHaveBeenCalled();
+    }
+  );
+
+  it('should set scooter icon', () => {
+    let url = "";
+    url = component.checkScooterIcon({"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"});
+    expect(url).toBeTruthy();
+    url = "";
+    url = component.checkScooterIcon({"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"inactive"});
+    expect(url).toBeTruthy();
+    url = "";
+    url = component.checkScooterIcon({"id":1,"customer_id": 1,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"});
+    expect(url).toBeTruthy();
+    url = "";
+    url = component.checkScooterIcon({"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":16,"status":"active"});
+    expect(url).toBeTruthy();
+    }
+  );
 });
