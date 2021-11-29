@@ -19,4 +19,4 @@ jobs:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
-      - run: npm run codecov
+      - run: npm run codecov --disable=gcov
