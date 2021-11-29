@@ -7,6 +7,8 @@ jobs:
     docker:
       - image: circleci/node:latest
     steps:
+      - codecov/upload:
+          file: {{ coverage_report_filepath }}
       - checkout
       - restore_cache:
           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
@@ -18,5 +20,3 @@ jobs:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - run: npm run codecov --disable=gcov
-      - codecov/upload:
-          file: {{ coverage_report_filepath }}
