@@ -1,20 +1,18 @@
-version: 2.1
-orbs: 
-  codecov: codecov/codecov@3.2.2
+version: '2.1'
+orbs:
+  codecov: codecov/codecov@3.1.1
 workflows:
   upload-to-codecov:
     jobs:
       - checkout
       - codecov/upload
-jobs:
   build:
     working_directory: ~/my-project
     docker:
       - image: circleci/node:latest
     steps:
-      - codecov/upload:
-          file: {{ coverage_report_filepath }}
       - checkout
+      - codecov/upload
       - restore_cache:
           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
@@ -24,4 +22,5 @@ jobs:
           paths:
             - "node_modules"
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - run: npm run codecov --disable=gcov
+
+      - run: npm run codecov
