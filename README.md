@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master.svg?style=svg)](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master)
+[![CircleCI](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master.svg?style=svg)](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master) [![codecov](https://codecov.io/gh/fahlstrm/pattern-adminweb/branch/master/graph/badge.svg?token=VNL3DOH0AR)](https://codecov.io/gh/fahlstrm/pattern-adminweb)
 
 # Adminweb
 
