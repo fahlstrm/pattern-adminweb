@@ -29,6 +29,7 @@ import { StationScooterTableComponent } from './components/tables/station-scoote
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ActivatedRoute } from '@angular/router';
 
 @NgModule({
   declarations: [

@@ -36,7 +36,10 @@ export class CustomerTableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.refresh();
+    // Had to set timeout to avoid error NG100 when testing -- double check that it does not interfer with functionality
+    setTimeout(() => {
+      this.refresh();
+    });
   }
 
   onClick(row: any): void {
