@@ -5,12 +5,16 @@
     background-color:#334A4A;
     min-height: 25vh;
     padding-top: 50px;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
     -webkit-clip-path: polygon(0 0,100% 20%,100% 100%,0% 100%);
     clip-path: polygon(0 0,100% 20%,100% 100%,0% 100%); 
 }
 
 i {
     color: white;
+}
+
+img {
+    height: 2em;
 }
