@@ -1,13 +1,12 @@
-FROM node:latest
-
-RUN mkdir -p /app
-
+FROM node:latest as node
 WORKDIR /app
-
-COPY package.json /app
-
+COPY . .
 RUN npm install
 
-COPY . /app
+RUN npm run build
 
-RUN npm start
+FROM nginx:alpine
+COPY --from=node /app/dist/adminweb /usr/share/nginx/html
+
+EXPOSE 4200
+CMD ng serve --host 0.0.0.0 --port 4200
