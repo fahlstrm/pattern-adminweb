@@ -28,8 +28,8 @@ export class ScooterService {
    * för att aktivera polling
    * Intervallet anger hur lång tid mellan hämtningar
    */
-  pollingScooters: Subscription;
-  pollingStationScooters: Subscription;
+  // pollingScooters: Subscription;
+  // pollingStationScooters: Subscription;
 
   constructor(
     private httpService: HttpService,
@@ -38,25 +38,25 @@ export class ScooterService {
     private http: HttpClient ) {
 
 
-  this.pollingScooters = interval(10000)
-  .pipe(
-    startWith(0),
-    switchMap(() => this.getScooters())
-    ).subscribe(
-      scooters => {
-        console.log("Hämtar scootrar:", scooters.length)
-      }
-    )   
+    // this.pollingScooters = interval(5000)
+    // .pipe(
+    //   startWith(0),
+    //   switchMap(() => this.getScooters())
+    //   ).subscribe(
+    //     scooters => {
+    //       console.log("Hämtar scootrar:", scooters.length)
+    //     }
+    //   )   
 
-    this.pollingStationScooters = interval(10000)
-    .pipe(
-      startWith(0),
-      switchMap(() => this.getScooters())
-      ).subscribe(
-        scooters => {
-          console.log("Hämtar scootrar:", scooters.length)
-        }
-    ) 
+    // this.pollingStationScooters = interval(5000)
+    // .pipe(
+    //   startWith(0),
+    //   switchMap(() => this.getStationScooters())
+    //   ).subscribe(
+    //     scooters => {
+    //       console.log("Hämtar för station:", scooters)
+    //     }
+    // ) 
  
     this.citySubscrition = this.cityService.onSet().subscribe(city => {
       this.city = city;
@@ -65,10 +65,9 @@ export class ScooterService {
 
     this.stationSubscription = this.stationService.onSet().subscribe(station => {
       this.station = station;
-      console.log("Station i konst för scooters", this.station)
       this.getStationScooters();
     })
-    this.getScooters();
+    // this.getScooters();
   }
 
 
@@ -88,8 +87,6 @@ export class ScooterService {
 
   getStationScooters(): Observable<any> {
     if(this.city.length != 0) {
-      console.log("HÄMTAR", this.station)
-
       this.httpService.getStationScooters(this.station.id).subscribe(
         (data:any) => {
           this.stationScooters.next(data)
@@ -102,8 +99,6 @@ export class ScooterService {
   // Ändra status till/från active/inactive
   changeScooterStatus(scooter: any): void {
     this.httpService.changeScooterStatus(scooter).next();
-    console.log("hämtar en scooter")
-    this.getScooters();
   }
 
   removeScooterFromLoading(scooter: any): void {
