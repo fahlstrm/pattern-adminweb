@@ -45,7 +45,7 @@ export class HttpService {
   }
   
   //Tar bort scooter från laddstation, batteri till 100 och status till active
-  removeScooterFomLoading(scooter: any): any {
+  removeScooterFromLoading(scooter: any): any {
     const body = {
       "status": scooter.status,
       "battery_level": scooter.battery_level

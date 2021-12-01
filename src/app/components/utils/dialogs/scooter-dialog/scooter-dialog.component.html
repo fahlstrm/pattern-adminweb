@@ -11,8 +11,7 @@
         <p>{{checked ? 'Inaktivera' : 'Aktivera' }}</p>
     </mat-slide-toggle>
 
-    <form>
-        
+    <form>        
         <h4>{{scooterOnCharge ? 'Enheten står på laddstation' : 'Flytta till laddstation'}}</h4>
         <mat-form-field  appearance="fill">
           <mat-label>Stationer</mat-label>
@@ -29,7 +28,7 @@
   
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close>Stäng</button>
     <button mat-button [mat-dialog-close]="true" cdkFocusInitial
     (click)="moveScooterToStation()">{{ selectedStation ? 'Flytta till parkering ' + selectedStation.location : ''}}</button>
 </mat-dialog-actions>

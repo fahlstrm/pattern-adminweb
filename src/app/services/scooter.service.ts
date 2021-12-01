@@ -101,15 +101,17 @@ export class ScooterService {
 
   // Ändra status till/från active/inactive
   changeScooterStatus(scooter: any): void {
-    this.httpService.changeScooterStatus(scooter);
+    this.httpService.changeScooterStatus(scooter).next();
+    console.log("hämtar en scooter")
+    this.getScooters();
   }
 
   removeScooterFromLoading(scooter: any): void {
-    this.httpService.removeScooterFomLoading(scooter);
+    this.httpService.removeScooterFromLoading(scooter);
   }
 
   //Flytta scooter till parkering
   moveScooterToPark(scooter: any): void {
-      this.httpService.moveScooterToPark(scooter)
+      this.httpService.moveScooterToPark(scooter);
   }
 }

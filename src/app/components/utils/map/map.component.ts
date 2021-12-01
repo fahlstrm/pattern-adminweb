@@ -123,7 +123,7 @@ export class MapComponent implements AfterViewInit {
 
     if(scooter.customer_id != null) {
       iconUrl = 'rented'
-    } else if (scooter.status != 'active') {
+    } else if (scooter.status == 'inactive') {
       iconUrl = 'inactive'
     } else if (scooter.battery_level < 20) {
       iconUrl = 'battery';
