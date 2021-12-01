@@ -22,3 +22,7 @@ app-station-table {
 }
 
 
+
+.active {
+    color: rgb(37, 165, 137);
+}

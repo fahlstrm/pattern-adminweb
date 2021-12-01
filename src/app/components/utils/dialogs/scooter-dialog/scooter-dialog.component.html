@@ -1,7 +1,8 @@
 <mat-dialog-content>
     
-    <h1 mat-dialog-title>Elscooter: {{scooter.id}}</h1>
+    <h1 mat-dialog-title>Elscooter {{scooter.id}}</h1>
     <p> ID: {{scooter.id}}<br> Batterinivå: {{scooter.battery_level}}</p>
+    <p>{{scooter.station_id ? 'Station: ' + scooter.station_id : '' }}</p>
     <mat-slide-toggle
         (change)=setChecked()
         class="example-margin"

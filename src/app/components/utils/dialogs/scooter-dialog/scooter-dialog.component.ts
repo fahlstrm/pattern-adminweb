@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class ScooterDialogComponent implements OnInit {
   fromPage!: string;
   fromDialog!: string;
+
   checked = true;
   disabled = false;
   stationSubscription: Subscription;
@@ -46,6 +47,7 @@ export class ScooterDialogComponent implements OnInit {
     this.scooter.lat_pos = this.selectedStation.lat_center;
     this.scooter.lon_pos = this.selectedStation.lon_center;
     this.scooter.status = "maintenance";
+    this.scooterOnCharge = !this.scooterOnCharge;
     this.scooterService.moveScooterToPark(this.scooter);
   }
 
@@ -54,10 +56,17 @@ export class ScooterDialogComponent implements OnInit {
     console.log(this.scooter.status)
     if (this.scooter.status == "active") {
       this.scooter.status = "inactive"
+      this.scooterService.changeScooterStatus(this.scooter)
+
     } else if (this.scooter.status == "inactive") {
       this.scooter.status = "active"
+      this.scooterService.changeScooterStatus(this.scooter)
+
+    } else if (this.scooter.status == "maintenance") {
+      this.scooter.status = "active",
+      this.scooter.battery_level = 100;
+      this.scooterService.removeScooterFromLoading(this.scooter)
     }
     console.log(this.scooter.status)
-    this.scooterService.changeScooterStatus(this.scooter)
   }
 }

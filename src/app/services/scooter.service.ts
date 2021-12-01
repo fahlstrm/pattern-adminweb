@@ -28,8 +28,8 @@ export class ScooterService {
    * för att aktivera polling
    * Intervallet anger hur lång tid mellan hämtningar
    */
-  // pollingScooters: Subscription;
-  // pollingStationScooters: Subscription;
+  pollingScooters: Subscription;
+  pollingStationScooters: Subscription;
 
   constructor(
     private httpService: HttpService,
@@ -38,25 +38,25 @@ export class ScooterService {
     private http: HttpClient ) {
 
 
-  // this.pollingScooters = interval(10000)
-  // .pipe(
-  //   startWith(0),
-  //   switchMap(() => this.getScooters())
-  //   ).subscribe(
-  //     scooters => {
-  //       console.log("Hämtar scootrar:", scooters.length)
-  //     }
-  //   )   
+  this.pollingScooters = interval(10000)
+  .pipe(
+    startWith(0),
+    switchMap(() => this.getScooters())
+    ).subscribe(
+      scooters => {
+        console.log("Hämtar scootrar:", scooters.length)
+      }
+    )   
 
-  //   this.pollingStationScooters = interval(10000)
-  //   .pipe(
-  //     startWith(0),
-  //     switchMap(() => this.getScooters())
-  //     ).subscribe(
-  //       scooters => {
-  //         console.log("Hämtar scootrar:", scooters.length)
-  //       }
-  //   ) 
+    this.pollingStationScooters = interval(10000)
+    .pipe(
+      startWith(0),
+      switchMap(() => this.getScooters())
+      ).subscribe(
+        scooters => {
+          console.log("Hämtar scootrar:", scooters.length)
+        }
+    ) 
  
     this.citySubscrition = this.cityService.onSet().subscribe(city => {
       this.city = city;
@@ -100,12 +100,16 @@ export class ScooterService {
   }
 
   // Ändra status till/från active/inactive
-  changeScooterStatus(scooter: any): any {
+  changeScooterStatus(scooter: any): void {
     this.httpService.changeScooterStatus(scooter);
   }
 
+  removeScooterFromLoading(scooter: any): void {
+    this.httpService.removeScooterFomLoading(scooter);
+  }
+
   //Flytta scooter till parkering
-  moveScooterToPark(scooter: any): any {
+  moveScooterToPark(scooter: any): void {
       this.httpService.moveScooterToPark(scooter)
   }
 }

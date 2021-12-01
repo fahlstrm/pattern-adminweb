@@ -9,7 +9,7 @@ export interface StationScooterTableItem {
   status: string;
   id: number;
   battery_level: number;
-  station_id: number;
+  // station_id: number;
 }
 
 // TODO: replace this with real data from your application
@@ -81,7 +81,7 @@ export class StationScooterTableDataSource extends DataSource<StationScooterTabl
         case 'id': return compare(+a.id, +b.id, isAsc);
         case 'status': return compare(a.status, b.status, isAsc);
         case 'battery_level': return compare(a.battery_level, b.battery_level, isAsc);
-        case 'station_id': return compare(a.station_id, b.station_id, isAsc);
+        // case 'station_id': return compare(a.station_id, b.station_id, isAsc);
         default: return 0;
       }
     });

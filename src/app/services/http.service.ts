@@ -27,9 +27,28 @@ export class HttpService {
     return this.http.get<any>(`${this.baseUrl}/scooters/${scooter.id}`);
   }
 
+  // Ändrar status för scooter
   changeScooterStatus(scooter: any): any {
     const body = {
       "status": scooter.status
+    }
+    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
+    .subscribe({
+      next: res => {
+        return res;
+      },
+      error: error => {
+        console.error('There was an error!', error);
+        console.log("ERROR")
+      }
+    });
+  }
+  
+  //Tar bort scooter från laddstation, batteri till 100 och status till active
+  removeScooterFomLoading(scooter: any): any {
+    const body = {
+      "status": scooter.status,
+      "battery_level": scooter.battery_level
     }
     return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
     .subscribe({
