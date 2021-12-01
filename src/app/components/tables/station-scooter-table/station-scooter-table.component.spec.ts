@@ -6,6 +6,8 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StationScooterTableComponent } from './station-scooter-table.component';
 import { ScooterService } from 'src/app/services/scooter.service';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { of } from 'rxjs';
 
 describe('StationScooterTableComponent', () => {
@@ -24,7 +26,8 @@ describe('StationScooterTableComponent', () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatDialogModule
       ],
       providers: [{provide: ScooterService, useValue: scootersStub}]
     }).compileComponents();
