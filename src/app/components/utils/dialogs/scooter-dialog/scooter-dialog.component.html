@@ -1,7 +1,9 @@
 <mat-dialog-content>
     
     <h1 mat-dialog-title>Elscooter {{scooter.id}}</h1>
-    <p> ID: {{scooter.id}}<br> Batterinivå: {{scooter.battery_level}}</p>
+    <p>{{scooter.customer_id != null ? 'Scootern körs just nu i ' + scooter.speed_kph + ' km/h': ''}}</p>
+    <p>Batterinivå:</p>
+    <mat-progress-bar mode="determinate" value={{scooter.battery_level}} color="accent"></mat-progress-bar>
     <p>{{scooter.station_id ? 'Station: ' + scooter.station_id : '' }}</p>
     <mat-slide-toggle
         (change)=setChecked()
@@ -11,7 +13,7 @@
         <p>{{checked ? 'Inaktivera' : 'Aktivera' }}</p>
     </mat-slide-toggle>
 
-    <form>        
+    <form *ngIf="!disabled">        
         <h4>{{scooterOnCharge ? 'Enheten står på laddstation' : 'Flytta till laddstation'}}</h4>
         <mat-form-field  appearance="fill">
           <mat-label>Stationer</mat-label>
