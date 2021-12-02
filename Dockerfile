@@ -1,12 +1,12 @@
 FROM node:latest as node
 WORKDIR /app
 COPY . .
-RUN npm install
 
-RUN npm run build
+RUN npm install && npm run build
 
 FROM nginx:alpine
-COPY --from=node /app/dist/adminweb /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=node /app/dist/adminweb .
 
-EXPOSE 4200
-CMD ng serve --host 0.0.0.0 --port 4200
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
