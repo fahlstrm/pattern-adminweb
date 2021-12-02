@@ -53,7 +53,6 @@ export class ScooterDialogComponent implements OnInit {
 
   setChecked(): void {
     this.checked = !this.checked;
-    console.log(this.scooter.status)
     if (this.scooter.status == "active") {
       this.scooter.status = "inactive"
       this.scooterService.changeScooterStatus(this.scooter)
