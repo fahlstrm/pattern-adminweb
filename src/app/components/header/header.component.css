@@ -3,10 +3,13 @@
     grid-row: 1;
     background-color: rgb(133, 133, 133);
     height: 10vh;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px;
+    z-index: 2;
 }
 
 img {
     height: 50%;
     align-self:center; 
+    z-index: 3;
 }
 
