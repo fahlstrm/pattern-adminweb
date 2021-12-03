@@ -14,9 +14,6 @@ export class BodyComponent implements OnInit {
     console.log("body component")
   }
 
-  logout():void 
-   {
-    console.log("logga ut")
-  }
+
 
 }

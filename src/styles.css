@@ -1,7 +1,14 @@
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+
 }
+
+app-root {
+    display: grid;
+    grid-template-rows: 15vh 5vh auto 25vh;
+}
+
 
 .grid-wrap {
     padding: 2em;
@@ -23,6 +30,11 @@ body {
     padding: 2rem;
     grid-column-start: auto;
     grid-column-end: span 4;
+    height: 10vh;
+}
+
+.box-shadow {
+    box-shadow: rgb(0 0 0 / 30%) 0px 2px 5px;
 }
 
 

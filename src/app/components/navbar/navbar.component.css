@@ -1,0 +1,16 @@
+:host {
+    grid-row: 2;
+}
+
+nav {
+    display: flex;
+    align-content: flex-start;
+}
+
+.push {
+    margin-left: auto;
+}
+
+.active {
+    color: #508585;
+}

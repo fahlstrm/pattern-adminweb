@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ActivatedRoute } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ActivatedRoute } from '@angular/router';
     ScooterDialogComponent,
     StationDialogComponent,
     StationScooterTableComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

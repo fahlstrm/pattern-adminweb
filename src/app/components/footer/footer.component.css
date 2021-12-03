@@ -1,9 +1,8 @@
 :host {
     grid-column: 1/span 5;
-    grid-row: 5;
+    grid-row: 4;
     color: white;
     background-color:#334A4A;
-    min-height: 25vh;
     padding-top: 50px;
     /* position: absolute;
     bottom: 0; */
