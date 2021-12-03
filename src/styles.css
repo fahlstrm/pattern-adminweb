@@ -6,9 +6,24 @@ body {
 
 app-root {
     display: grid;
-    grid-template-rows: 15vh 5vh auto 25vh;
+    grid-template-rows: 10vh 5vh auto 25vh;
 }
 
+app-header {
+    grid-row: 1;
+}
+
+app-navbar {
+    grid-row: 2;
+}
+
+app-body {
+    grid-row: 3;
+}
+
+app-footer {
+    grid-row: 4;
+}
 
 .grid-wrap {
     padding: 2em;
@@ -21,10 +36,6 @@ app-root {
     grid-auto-rows: minmax(2rem, auto);
 }
 
-.header-link {
-    text-decoration: none;
-    color: black;
-}
 
 .content-div {
     padding: 2rem;
@@ -44,7 +55,6 @@ app-root {
 }
 
 .nav-link {
-    
     text-decoration: none;
     color: black;
     align-self: center;
