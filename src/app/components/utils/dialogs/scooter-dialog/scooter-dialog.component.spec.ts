@@ -16,7 +16,8 @@ describe('ScooterDialogComponent', () => {
   beforeEach(async () => {
     scootersStub = {
       moveScooterToPark: () => of(),
-      changeScooterStatus: () => of()
+      changeScooterStatus: () => of(),
+      removeScooterFromLoading: () => of()
     }
     stationsStub = {
       getStations: () => of([{"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"},{"id":3,"city_id":1,"location":"Circle K","lat_center":"58.390452","lon_center":"13.834545","radius":"0.002","type":"charge"}]),
@@ -34,6 +35,8 @@ describe('ScooterDialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ScooterDialogComponent);
     component = fixture.componentInstance;
+    component.checked = true;
+    component.scooter = data;
     fixture.detectChanges();
   });
 
@@ -41,26 +44,25 @@ describe('ScooterDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should set checked', () => {
-  //   component.scooter = {"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"};
-  //   component.checked = true;
-  //   fixture.detectChanges();
-  //   let spy = spyOn(component, 'setChecked');
-  //   component.setChecked();
-  //   expect(spy).toHaveBeenCalled();
-  //   expect(component.checked).toBe(false);
-  // });
+  it('should set checked', () => {
+    component.scooter = {"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"};
+    fixture.detectChanges();
+    let spy = spyOn(component, 'setChecked');
+    component.setChecked();
+    expect(spy).toHaveBeenCalled();
+    // expect(component.checked).toBe(true);
+  });
 
-  // it('should be moved to park', () => {
-  //   let spy = spyOn(component, 'moveScooterToStation');
-  //   component.scooter = {"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"};
-  //   component.selectedStation = {"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"};
-  //   fixture.detectChanges();
-  //   component.moveScooterToStation();
-  //   fixture.detectChanges();
-  //   expect(spy).toHaveBeenCalled();
-  //   // expect(component.scooter).toEqual({"id":1,"customer_id":null,"city_id":1,"station_id":2,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"});
-  //   expect(component.scooter).toBeTruthy();
-  // });
+  it('should be moved to park', () => {
+    let spy = spyOn(component, 'moveScooterToStation');
+    component.scooter = {"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"};
+    component.selectedStation = {"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"};
+    fixture.detectChanges();
+    component.moveScooterToStation();
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalled();
+    // expect(component.scooter).toEqual({"id":1,"customer_id":null,"city_id":1,"station_id":2,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"});
+    expect(component.scooter).toBeTruthy();
+  });
 
 });

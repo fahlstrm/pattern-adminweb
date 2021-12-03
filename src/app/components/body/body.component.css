@@ -17,3 +17,7 @@ nav {
     color: #508585;
 }
 
+mat-toolbar {
+    background-color: white;
+    z-index: 0;
+}
