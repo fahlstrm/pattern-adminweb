@@ -114,4 +114,10 @@ describe('HttpService', () => {
     const req = httpTestingController.expectOne(service.baseUrl + "/scooters/1");
     expect(req.request.method).toEqual('PUT');
   });
+
+  it('should remove scooter from charging', () => {
+    service.removeScooterFromLoading(expectedScooter);
+    const req = httpTestingController.expectOne(service.baseUrl + "/scooters/1");
+    expect(req.request.method).toEqual('PUT');
+  });
 });

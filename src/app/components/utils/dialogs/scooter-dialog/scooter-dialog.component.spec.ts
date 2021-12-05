@@ -57,6 +57,7 @@ describe('ScooterDialogComponent', () => {
     let spy = spyOn(component, 'moveScooterToStation');
     component.scooter = {"id":1,"customer_id":null,"city_id":1,"station_id":9,"lat_pos":"58.399560","lon_pos":"13.723922","speed_kph":0,"battery_level":68,"status":"active"};
     component.selectedStation = {"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"};
+    component.scooterOnCharge = false;
     fixture.detectChanges();
     component.moveScooterToStation();
     fixture.detectChanges();
