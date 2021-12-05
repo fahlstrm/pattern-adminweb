@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginDialogComponent } from './login-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 describe('LoginDialogComponent', () => {
   let component: LoginDialogComponent;
@@ -12,7 +12,8 @@ describe('LoginDialogComponent', () => {
       declarations: [ LoginDialogComponent ],
       imports: [
         MatDialogModule
-      ]
+      ],
+      providers: [{ provide: MatDialogRef, useValue: {} }]
     })
     .compileComponents();
   });
