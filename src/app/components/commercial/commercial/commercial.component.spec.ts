@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommercialComponent } from './commercial.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('CommercialComponent', () => {
   let component: CommercialComponent;
@@ -8,7 +9,10 @@ describe('CommercialComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommercialComponent ]
+      declarations: [ CommercialComponent ],
+      imports: [
+        MatDialogModule
+      ]
     })
     .compileComponents();
   });

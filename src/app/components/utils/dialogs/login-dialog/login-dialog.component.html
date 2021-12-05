@@ -1,1 +1,8 @@
-<p>login-dialog works!</p>
+<button mat-raised-button (click)="loginClick()" *ngIf="!loggedIn" id="loginClick">
+    <i class="fab fa-github">  </i>
+    Logga in med GitHub
+</button>
+
+<button mat-raised-button mat-dialog-close (click)="checkClick()" *ngIf="loggedIn" id="checkClick">
+    Klicka för att använda appen
+</button>
