@@ -8,7 +8,7 @@ app-root {
     grid-template-rows: 10vh 5vh auto 25vh;
 }
 
-.app-header-link, app-navbar {
+.app-header-link, app-navbar, app-body {
     grid-column: 1/span 5;
 
 }

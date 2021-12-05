@@ -37,6 +37,7 @@ export class LoginDialogComponent implements OnInit {
   }
 
   loginClick() {
+    console.log("test")
     // this.customerSerivce.loginCustomer();
   }
 
