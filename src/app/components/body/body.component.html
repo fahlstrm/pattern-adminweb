@@ -1,17 +1,12 @@
 
-<!-- <div *ngIf="auth; else commercial" class=""> -->
-    <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-    <!-- <nav class="grid grid-wrap">
-        <a routerLink="/" routerLinkActiveOptions="{ exact: true }" class="nav-link">Hem</a>
-        <a routerLink="/city" routerLinkActive="active" class="nav-link">Städer</a> 
-        <a routerLink="/customers" routerLinkActive="active" class="nav-link">Kunder</a> 
-        <button mat-stroked-button (click)="logout()" class="push">Logga ut</button>
-    </nav> -->
+<div *ngIf="auth; else commercial" class="">
     <!-- The routed views render in the <router-outlet>-->
+    <app-navbar></app-navbar>
     <router-outlet></router-outlet>
 
+</div>
 
-<!-- <ng-template #commercial>
-    <app-commercial class="grid grid-wrap"></app-commercial>
-</ng-template> -->
+<ng-template #commercial>
+    <app-commercial></app-commercial>
+</ng-template>
 

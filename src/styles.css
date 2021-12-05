@@ -19,14 +19,9 @@ app-root {
     background-color: rgb(68, 75, 75);
 }
 
-
-app-navbar {
-    grid-row: 2;
-}
-
 app-body {
-    grid-row: 3;
-    min-height: 55vh;
+    grid-row: 2 /span 2;
+    min-height: 60vh;
 }
 
 app-footer {

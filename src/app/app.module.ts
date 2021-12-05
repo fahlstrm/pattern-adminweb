@@ -31,6 +31,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CommercialComponent } from './components/commercial/commercial/commercial.component';
+import { LoginDialogComponent } from './components/utils/dialogs/login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     StationDialogComponent,
     StationScooterTableComponent,
     NavbarComponent,
+    CommercialComponent,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,

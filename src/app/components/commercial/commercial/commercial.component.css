@@ -1,0 +1,29 @@
+.image-div {
+    grid-column: 1/span 12;
+    margin: -2rem;
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+}
+
+.image-div img {
+    object-fit: fill;
+    flex-shrink: 0;
+    max-width: 100%;
+    min-height: 80%;
+}
+
+.mat-raised-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 15vw;
+    z-index: 1;
+    left: 25vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
