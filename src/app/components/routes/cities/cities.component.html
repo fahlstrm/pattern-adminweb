@@ -1,6 +1,6 @@
-<div *ngFor="let city of cityService.cities | async" class="content-div city-div">
+<div *ngFor="let city of cityService.cities | async" class="city-div">
     <a routerLink="/city/{{city.name}}">
-        <img src="assets/img/city/{{city.name}}.jpg" alt="{{city.name}}"> 
-       <p> {{city.name }} </p>
+        <img src="assets/img/city/{{city.name}}.jpg" alt="{{city.name}}" class="box-shadow"> 
+        <p> {{city.name }} </p>
     </a>
 </div>

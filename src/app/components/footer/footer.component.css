@@ -10,10 +10,22 @@
     clip-path: polygon(0 0,100% 20%,100% 100%,0% 100%); 
 }
 
-i {
+i, a  {
     color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #75cf90;
 }
 
 img {
     height: 2em;
+    margin: 0 0.5em;
+}
+
+p {
+    font-size: 0.8em;
+    margin: 0;
+    line-height: 1.35em;
 }

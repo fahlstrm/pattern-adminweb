@@ -1,14 +1,25 @@
 .city-div {
+    grid-column-start: auto;
+    grid-column-end: span 4;
     position: relative;
     text-align: center;
-    height: 22vh;
 }
+
 
 .city-div img {
     width: 100%;
-    max-height: 100%;
+    height: 20vh;
     object-fit: cover;
+    outline: 100px solid rgba(116, 104, 104, 0.5) !important;
+    outline-offset: -100px;
+    overflow: hidden;
+    position: relative;
 }
+
+.city-div img:hover {
+    outline: 100px solid rgba(197, 197, 197, 0.075) !important;
+}
+
 
 .city-div p {
     color: white;
@@ -19,6 +30,9 @@
     left: 50%;
     margin: 0;
     transform: translate(-50%, -50%);
-    background-color: rgba(128, 128, 128, 0.747);
-    padding: 2rem;
+    /* padding: 2rem; */
+}
+
+.city-div p:hover {
+    background-color: none;
 }

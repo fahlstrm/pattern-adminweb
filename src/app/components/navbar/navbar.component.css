@@ -1,16 +1,7 @@
-:host {
-    grid-row: 2;
-}
-
-nav {
-    display: flex;
-    align-content: flex-start;
-}
-
-.push {
-    margin-left: auto;
+button {
+    grid-column: 12;
 }
 
 .active {
-    color: #508585;
+    color: #3c8f67;
 }

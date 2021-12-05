@@ -1,7 +1,6 @@
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-
 }
 
 app-root {
@@ -9,9 +8,17 @@ app-root {
     grid-template-rows: 10vh 5vh auto 25vh;
 }
 
-app-header {
-    grid-row: 1;
+.app-header-link, app-navbar {
+    grid-column: 1/span 5;
+
 }
+
+/* Link sourrding header */ 
+.app-header-link {
+    grid-row: 1;
+    background-color: rgb(68, 75, 75);
+}
+
 
 app-navbar {
     grid-row: 2;
@@ -19,6 +26,7 @@ app-navbar {
 
 app-body {
     grid-row: 3;
+    min-height: 55vh;
 }
 
 app-footer {
@@ -36,6 +44,10 @@ app-footer {
     grid-auto-rows: minmax(2rem, auto);
 }
 
+.align-items {
+    height: 100%;
+    align-items: center;
+}
 
 .content-div {
     padding: 2rem;
@@ -45,7 +57,7 @@ app-footer {
 }
 
 .box-shadow {
-    box-shadow: rgb(0 0 0 / 30%) 0px 2px 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px;
 }
 
 
@@ -62,7 +74,6 @@ app-footer {
 
 .nav-link:hover {
     color: grey;
-    
 }
 
 /* table-row hoover */ 
