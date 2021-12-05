@@ -34,5 +34,13 @@ export class LoginDialogComponent implements OnInit {
   closeDialog() {
     this.dialogRef.close({ 
       event: 'close', data: this.fromDialog });
-    }
+  }
+
+  loginClick() {
+    // this.customerSerivce.loginCustomer();
+  }
+
+  checkClick() {
+    // this.customerSerivce.checkClick();
+  }
 }
