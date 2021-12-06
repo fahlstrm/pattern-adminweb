@@ -6,7 +6,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @HostBinding('class') classes = 'grid grid-wrap align-items';
+  @HostBinding('class') classes = 'grid grid-wrap align-items fill-body';
 
   constructor() { }
 

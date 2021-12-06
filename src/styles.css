@@ -44,6 +44,10 @@ app-footer {
     align-items: center;
 }
 
+.fill-body {
+    min-height: 50vh;
+}
+
 .content-div {
     padding: 2rem;
     grid-column-start: auto;
