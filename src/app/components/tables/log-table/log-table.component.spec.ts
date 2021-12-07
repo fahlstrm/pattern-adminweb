@@ -5,6 +5,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { LogTableComponent } from './log-table.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LogTableComponent', () => {
   let component: LogTableComponent;
@@ -18,6 +19,7 @@ describe('LogTableComponent', () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
+        HttpClientTestingModule
       ]
     }).compileComponents();
   }));
