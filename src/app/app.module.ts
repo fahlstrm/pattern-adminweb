@@ -34,6 +34,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CommercialComponent } from './components/commercial/commercial/commercial.component';
 import { LoginDialogComponent } from './components/utils/dialogs/login-dialog/login-dialog.component';
 import { LogTableComponent } from './components/tables/log-table/log-table.component';
+import { CustomerDialogComponent } from './components/utils/dialogs/customer-dialog/customer-dialog.component';
+import { UserLogTableComponent } from './components/tables/user-log-table/user-log-table.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { LogTableComponent } from './components/tables/log-table/log-table.compo
     CommercialComponent,
     LoginDialogComponent,
     LogTableComponent,
+    CustomerDialogComponent,
+    UserLogTableComponent,
   ],
   imports: [
     BrowserModule,

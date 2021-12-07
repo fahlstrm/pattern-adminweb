@@ -93,6 +93,16 @@ export class HttpService {
     return this.http.get<any>(`${this.baseUrl}/users`);
   }
 
+  //Get one user by id 
+  getUser(id: any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/users/${id}`);
+  }
+
+  //Get log for specific user
+  getUserLog(id:any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/users/${id}/logs`);
+  }
+
   //get log
   getLog(): Observable<any> {
     return this.http.get(`${this.baseUrl}/logs`);

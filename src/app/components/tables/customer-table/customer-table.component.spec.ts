@@ -42,7 +42,7 @@ describe('CustomerTableComponent', () => {
 
   it('should log row to console', () => {
     spyOn(window.console, 'log');
-    component.onClick(1); 
+    component.openDialog(1); 
     expect(window.console.log).toHaveBeenCalled();
   });
 });

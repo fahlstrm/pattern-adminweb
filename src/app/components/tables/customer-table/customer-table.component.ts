@@ -4,7 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { CustomerTableDataSource, CustomerTableItem } from './customer-table-datasource';
 import { CustomerService } from 'src/app/services/customer.service'; 
-
+import { CustomerDialogComponent } from '../../utils/dialogs/customer-dialog/customer-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customer-table',
@@ -20,7 +21,10 @@ export class CustomerTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'username', 'funds', 'payment_terms'];
 
-  constructor(public customerService: CustomerService) {
+  constructor(
+    public customerService: CustomerService,
+    public dialog: MatDialog
+    ) {
     this.dataSource = new CustomerTableDataSource();
   }
 
@@ -42,7 +46,11 @@ export class CustomerTableComponent implements AfterViewInit {
     });
   }
 
-  onClick(row: any): void {
-    console.log(row)
+  openDialog(customer: any): void {
+    console.log(customer)
+    this.customerService.setUser(customer);
+    this.dialog.open(CustomerDialogComponent, {
+      data: customer
+    });
   }
 }
