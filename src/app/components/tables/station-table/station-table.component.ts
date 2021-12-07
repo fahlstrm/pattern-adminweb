@@ -42,13 +42,11 @@ export class StationTableComponent implements AfterViewInit {
     })
   }
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
   openDialog(scooter: any): void {
     this.dialog.open(StationDialogComponent, {
-      data: scooter,
-      height: "90vh"
+      data: scooter
     });
   }
 }

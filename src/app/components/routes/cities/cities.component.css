@@ -6,6 +6,7 @@
 }
 
 
+
 .city-div img {
     width: 100%;
     height: 20vh;
@@ -16,9 +17,9 @@
     position: relative;
 }
 
-.city-div img:hover {
+/* .city-div img:hover {
     outline: 100px solid rgba(197, 197, 197, 0.075) !important;
-}
+} */
 
 
 .city-div p {
@@ -33,6 +34,7 @@
     /* padding: 2rem; */
 }
 
-.city-div p:hover {
-    background-color: none;
+
+img:hover > *:hover {
+    outline: 100px solid rgba(197, 197, 197, 0.075) !important;
 }

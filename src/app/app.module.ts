@@ -33,6 +33,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CommercialComponent } from './components/commercial/commercial/commercial.component';
 import { LoginDialogComponent } from './components/utils/dialogs/login-dialog/login-dialog.component';
+import { LogTableComponent } from './components/tables/log-table/log-table.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { LoginDialogComponent } from './components/utils/dialogs/login-dialog/lo
     NavbarComponent,
     CommercialComponent,
     LoginDialogComponent,
+    LogTableComponent,
   ],
   imports: [
     BrowserModule,

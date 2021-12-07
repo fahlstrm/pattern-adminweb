@@ -11,14 +11,21 @@ app-map {
     grid-row: 2;
 }
 
+h2 {
+    grid-row: 3;
+    grid-column-start: auto;
+    grid-column-end: span 6;
+    margin: 0;
+}
+
 app-scooter-table {
     grid-column: 1/span 6;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 app-station-table {
     grid-column: 7/span 6;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 

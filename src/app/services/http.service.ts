@@ -89,9 +89,13 @@ export class HttpService {
     return this.http.get(`${this.baseUrl}/stations/${station}/scooters`);
   }
 
-
   getUsers(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/users`);
+  }
+
+  //get log
+  getLog(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/logs`);
   }
 
 }

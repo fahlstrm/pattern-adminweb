@@ -1,7 +1,14 @@
-div {
-    grid-column: 1/span 6;
-}
 
 app-customer-table {
-    grid-column: 7/span 6;
+    grid-column: 1/span 12;
+}
+
+app-log-table {
+    grid-column: 1/span 12;
+}
+
+h2 {
+    grid-column-start: auto;
+    grid-column-end: span 6;
+    margin: 0;
 }

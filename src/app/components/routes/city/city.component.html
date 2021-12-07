@@ -1,5 +1,8 @@
 <a *ngFor="let city of cityService.cities | async" routerLink="/city/{{city.name}}" routerLinkActive="active" class="nav-link">{{city.name}}</a>
 
 <app-map ></app-map>
+
+<h2>Scooters</h2>
 <app-scooter-table></app-scooter-table>
+<h2>Stationer</h2>
 <app-station-table></app-station-table>
