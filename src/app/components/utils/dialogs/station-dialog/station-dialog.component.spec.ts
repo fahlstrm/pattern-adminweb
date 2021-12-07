@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StationDialogComponent } from './station-dialog.component';
 import { StationService } from 'src/app/services/station.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('StationDialogComponent', () => {
   let component: StationDialogComponent;
@@ -19,7 +20,7 @@ describe('StationDialogComponent', () => {
     data = {"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"}
     await TestBed.configureTestingModule({
       declarations: [ StationDialogComponent ],
-      imports: [HttpClientTestingModule], 
+      imports: [HttpClientTestingModule, RouterTestingModule], 
       providers: [{ provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: data }, {provide: StationService, useValue: stationsStub}]
     })
     .compileComponents();
