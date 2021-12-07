@@ -16,9 +16,9 @@ import { StationDialogComponent } from '../dialogs/station-dialog/station-dialog
 })
 export class MapComponent implements AfterViewInit {
   layers!: Array<any>
-  // cityCenter: any = ``;
+  cityCenter: any;
 
-  cityCenter = latLng([58.396830, 13.853019]);
+  // cityCenter = latLng([58.396830, 13.853019]);
   citySubscrition: Subscription;
   scooterSubscription: Subscription;
   stationSubscription: Subscription;
@@ -35,6 +35,7 @@ export class MapComponent implements AfterViewInit {
     ) {
       this.citySubscrition = this.cityService.onSet().subscribe(city => {
         this.city = city;
+        this.cityCenter = latLng([this.city[0].lat_center, this.city[0].lon_center]);
       })
       this.scooterSubscription = this.scooterService.getScooters().subscribe(resources => {
         this.scooters = resources;
@@ -78,16 +79,17 @@ export class MapComponent implements AfterViewInit {
   })
  
   options = {
-    zoom: 10,
-    center: this.cityCenter
+    zoom: 10
+    // center: this.cityCenter
   };
 
   ngAfterViewInit(): void {
+    this.cityCenter = latLng([this.city[0].lat_center, this.city[0].lon_center]);
     this.addMapContent();
   }
 
   addMapContent(): void {
-    this.cityCenter = latLng([this.city[0].lat_center, this.city[0].lon_center]);
+    // this.cityCenter = latLng([this.city[0].lat_center, this.city[0].lon_center]);
     
     // Add marker to base layer
     this.layers = [
