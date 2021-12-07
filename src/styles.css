@@ -52,7 +52,6 @@ app-footer {
     padding: 2rem;
     grid-column-start: auto;
     grid-column-end: span 4;
-    height: 10vh;
 }
 
 .box-shadow {

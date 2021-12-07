@@ -22,6 +22,11 @@ a:hover {
 img {
     height: 2em;
     margin: 0 0.5em;
+    filter: grayscale(100%);
+}
+
+img:hover {
+    filter: none;
 }
 
 p {
