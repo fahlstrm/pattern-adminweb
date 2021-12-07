@@ -17,6 +17,7 @@ import { StationService } from './station.service';
 export class ScooterService {
   private subject = new Subject<any>();
   private stationScooters = new Subject<any>();
+  private allScooters = new Subject<any>();
   city: any = []; 
   citySubscrition: Subscription;
   station: any = [];
@@ -70,7 +71,15 @@ export class ScooterService {
     // this.getScooters();
   }
 
+  getAllScooters(): Observable<any> {
 
+    this.httpService.getAllScooters().subscribe(
+      (data:any) => {
+        this.allScooters.next(data)
+      }
+    )
+    return this.allScooters.asObservable();
+  }
 
   getScooters(): Observable<any> {
     if(this.city.length != 0) {
