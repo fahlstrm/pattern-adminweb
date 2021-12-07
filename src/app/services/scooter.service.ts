@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Subject, Subscription, Observable, interval} from "rxjs";
 import { startWith, switchMap } from "rxjs/operators";
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { CityService } from './city.service';
 import { StationService } from './station.service';
+import { Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 
 
 /**
@@ -32,11 +32,13 @@ export class ScooterService {
   pollingScooters: Subscription;
   pollingStationScooters: Subscription;
 
+
   constructor(
     private httpService: HttpService,
     private cityService: CityService,
     private stationService: StationService,
-    private http: HttpClient ) {
+    public router: Router,
+    ) {
 
 
     this.pollingScooters = interval(5000)
@@ -45,6 +47,11 @@ export class ScooterService {
       switchMap(() => this.getScooters())
       ).subscribe(
         scooters => {
+      
+          router.events.subscribe(val => {
+            
+            console.log(val)
+         });
           console.log("Hämtar scootrar:", scooters.length)
         }
       )   
