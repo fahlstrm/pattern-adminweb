@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { icon } from 'leaflet';
 import { of } from 'rxjs';
 import { CityService } from 'src/app/services/city.service';
@@ -40,7 +41,8 @@ describe('MapComponent', () => {
       declarations: [ MapComponent ],
       imports: [
         HttpClientTestingModule,
-        MatDialogModule
+        MatDialogModule,
+        RouterTestingModule
       ],
       providers: [{provide: ActivatedRoute, useValue: mockRoute}, {provide: StationService, useValue: stationsStub}, {provide: ScooterService, userValue: scootersStub}, {provide: CityService, useValue: cityStub}]
     })
