@@ -16,7 +16,6 @@ app-root {
 /* Link sourrding header */ 
 .app-header-link {
     grid-row: 1;
-    background-color: rgb(68, 75, 75);
 }
 
 app-body {
@@ -99,6 +98,14 @@ mat-dialog-content::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
 }
 
 
+.darkgrey-background {
+    background-color: #424242;
+}
+
+.darkgrey {
+    color: #424242;
+}
+
 
 .green-background {
     background-color: #69f0ae;
@@ -108,7 +115,7 @@ mat-dialog-content::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
     color: #69f0ae
 }
 
-.purple-backgorund {
+.purple-background {
     background-color: #7b1fa2;
 }
 
