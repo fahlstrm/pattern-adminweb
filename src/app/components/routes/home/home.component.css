@@ -1,4 +1,7 @@
 div {
-    background-color: lightgray;
+    background-color: #424242;
+    color: white;
     height: 14vh;
+    border-radius: 5px;
+    justify-content: space-around;
 }
