@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { HttpService } from './http.service';
 
@@ -22,7 +23,7 @@ describe('ScooterService', () => {
       changeScooterStatus: () => of()
     }
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
+      imports: [ HttpClientTestingModule, RouterTestingModule ],
       providers: [{provide: HttpService, useValue: scooterStub}, {provide: StationService, useValue: stationStub}]
     });
     service = TestBed.inject(ScooterService);
