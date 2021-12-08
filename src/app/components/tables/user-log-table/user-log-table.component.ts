@@ -28,7 +28,6 @@ export class UserLogTableComponent implements AfterViewInit {
   ) {
     this.customerLogSubscription = this.customerService.getUserLog().subscribe(resources => {
       this.dataSource.data = resources; 
-
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
@@ -36,12 +35,13 @@ export class UserLogTableComponent implements AfterViewInit {
   }
 
   refresh(): void {
+
+  }
+
+  ngAfterViewInit(): void {
     this.dataSource.data.forEach(row => {
       row.start_time = Date.parse(row.start_time);
       row.end_time = Date.parse(row.end_time);
     })
-  }
-
-  ngAfterViewInit(): void {
   }
 }
