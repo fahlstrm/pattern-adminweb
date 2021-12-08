@@ -1,4 +1,17 @@
-<h2 class="orange">Logg för {{customer[0].username}} </h2>
-<p>Kundid: {{customer[0].id}} </p>
-<p>Tillgångar: {{customer[0].funds}} </p>
+<h2>Logg för 
+    <span class="orange">
+        {{customer[0].username}} 
+    </span>
+</h2>
+<p>Kund-id: 
+    <span class="green">
+        <b> {{customer[0].id}} </b>
+    </span>
+</p>
+<p>Tillgångar: 
+    <span class="red">
+        <b> {{customer[0].funds}}  </b>
+    </span>
+</p>
+
 <app-user-log-table></app-user-log-table>

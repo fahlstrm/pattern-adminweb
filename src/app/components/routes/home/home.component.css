@@ -3,4 +3,5 @@ div {
     height: 14vh;
     border-radius: 3px;
     justify-content: space-around;
+    font-size: 1.2em;
 }

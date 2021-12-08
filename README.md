@@ -4,7 +4,7 @@
 This repository is part of a group project done for the ['pattern' course](https://www.bth.se/utbildning/program-och-kurser/kurser/20232/BR4QJ/) at Blekinge Institute of Technology.
 
 Adminweb is developed using Angular framework. 
-Note that the application is based on [xxxxx]() backend,  without this repo the application might not work as expected. The master-repo can be found here: [xxxxx]()
+Note that the application is based on [xxxxx]() backend,  without this repo the application might not work as expected. The master-repo can be found here: [orchestra](https://github.com/datalowe/pattern-orchestra)
 
 To clone the repository run: `git clone xxxxx`
 

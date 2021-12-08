@@ -44,7 +44,7 @@ app-footer {
 }
 
 .fill-body {
-    min-height: 40vh;
+    min-height: 45vh;
 }
 
 .content-div {
@@ -65,12 +65,11 @@ app-footer {
 
 .nav-link {
     text-decoration: none;
-    color: black;
     align-self: center;
 }
 
 .nav-link:hover {
-    color: grey;
+    color: orange;
 }
 
 /* table-row hoover */ 

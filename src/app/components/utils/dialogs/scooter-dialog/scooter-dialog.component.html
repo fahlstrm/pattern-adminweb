@@ -3,7 +3,7 @@
     <h1 mat-dialog-title>Elscooter {{scooter.id}}</h1>
     <p>{{scooter.customer_id != null ? 'Scootern körs just nu i ' + scooter.speed_kph + ' km/h': ''}}</p>
     <p>Batterinivå:</p>
-    <mat-progress-bar mode="determinate" value={{scooter.battery_level}} color="accent"></mat-progress-bar>
+    <mat-progress-bar mode="determinate" value={{scooter.battery_level}} color="primary"></mat-progress-bar>
     <p>{{scooter.station_id ? 'Station: ' + scooter.station_id : '' }}</p>
     <mat-slide-toggle
         (change)=setChecked()
