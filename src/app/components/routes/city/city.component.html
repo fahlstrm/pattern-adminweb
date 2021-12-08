@@ -1,5 +1,30 @@
 <a *ngFor="let city of cityService.cities | async" routerLink="/city/{{city.name}}" routerLinkActive="active" class="nav-link">{{city.name}}</a>
 
+<span>
+    <div class="round green"><mat-icon>electric_scooter</mat-icon></div>
+    <p> = Tillgänglig </p> 
+<!-- </span>
+<span> -->
+    <div class="round yellow"><mat-icon>battery_alert</mat-icon></div>
+    <p> = Laddning nödvändig</p>
+<!-- </span>
+<span> -->
+    <div class="round grey"><mat-icon>electric_scooter</mat-icon></div>
+    <p> = Körs</p>
+<!-- </span>
+<span> -->
+    <div class="round red"><mat-icon>electric_scooter</mat-icon></div>
+    <p> = Inaktiv</p>
+<!-- </span>
+<span> -->
+    <div class="round purple"><mat-icon>local_parking</mat-icon></div>
+    <p> = Parkering</p>
+<!-- </span>
+<span> -->
+    <div class="round orange"><mat-icon>battery_charging_full</mat-icon></div>
+    <p> = Laddstation</p>
+</span>
+
 <app-map ></app-map>
 
 <h2>Scooters</h2>

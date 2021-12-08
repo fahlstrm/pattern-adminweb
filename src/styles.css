@@ -45,7 +45,7 @@ app-footer {
 }
 
 .fill-body {
-    min-height: 40vh;
+    height: 45vh;
 }
 
 .content-div {
@@ -100,4 +100,28 @@ mat-dialog-content::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
 
 
 
+.green {
+    background-color: #69f0ae;
+}
+
+.purple {
+    background-color: #7b1fa2;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+.yellow {
+    background-color: rgb(226, 226, 138);
+}
+
+.grey {
+    background-color: grey;
+    color: white;
+}
 

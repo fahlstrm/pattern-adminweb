@@ -1,11 +1,17 @@
+:host {
+    padding-bottom: 0;
+}
+
 button {
     grid-column: 12;
 }
 
 a {
+    font-size: 1.1em;
+    color: #2c2c2c;
     width: max-content;
 }
 
 .active {
-    color: #3c8f67;
+    color: #7b1fa2;
 }
