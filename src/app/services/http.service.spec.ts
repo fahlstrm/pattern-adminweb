@@ -9,6 +9,8 @@ describe('HttpService', () => {
   let expectedScooter: any;
   let expectedStations: any;
   let expectedUsers: any;
+  let expectedUser: any;
+  let expectedLogs: any;
 
   beforeEach(() => {
     expectedScooters = [
@@ -24,6 +26,8 @@ describe('HttpService', () => {
       { id: 1, name: "Frida" },
       { id: 2, name: "Janni" }
     ];
+    expectedLogs = [{"id":5,"username":"datalowe","funds":"300.00","payment_terms":"prepaid","customer_id":3,"scooter_id":982,"start_time":"2021-11-30 18:02:32","end_time":"2021-11-30 18:08:32","start_lat":"59.874629","start_lon":"17.626082","end_lat":"58.393154","end_lon":"13.838048","start_cost":"20.00","travel_cost":"15.00","parking_cost":"40.00","total_cost":"75.00"}];
+    expectedUser = { id: 1, name: "Frida" };
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
@@ -68,6 +72,30 @@ describe('HttpService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush(expectedScooter);
+  });
+
+  it('should return one user', () => {
+    service.getUser(1).subscribe(
+      user => expect(user).toEqual(expectedUser, 'should return one user')
+    );
+
+    const req = httpTestingController.expectOne(service.baseUrl + "/users/1");
+
+    expect(req.request.method).toEqual('GET');
+
+    req.flush(expectedUser);
+  });
+
+  it('should return one log', () => {
+    service.getUserLog(3).subscribe(
+      user => expect(user).toEqual(expectedLogs, 'should return one user log')
+    );
+
+    const req = httpTestingController.expectOne(service.baseUrl + "/users/3/logs");
+
+    expect(req.request.method).toEqual('GET');
+
+    req.flush(expectedLogs);
   });
 
   it('should return expected stations', () => {

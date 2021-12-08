@@ -10,7 +10,9 @@ describe('CustomerService', () => {
 
   beforeEach(() => {
     httpStub = {
-      getUsers: () => of([{"id":1,"username":"jannikarlsson","token":null,"funds":"200.00","payment_terms":"prepaid"},{"id":2,"username":"fahlstrm","token":null,"funds":"1000.00","payment_terms":"invoice"}])
+      getUsers: () => of([{"id":1,"username":"jannikarlsson","token":null,"funds":"200.00","payment_terms":"prepaid"},{"id":2,"username":"fahlstrm","token":null,"funds":"1000.00","payment_terms":"invoice"}]),
+      getUser: () => of({"id":1,"username":"jannikarlsson","token":null,"funds":"200.00","payment_terms":"prepaid"}),
+      setUser: () => of()
     }
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -23,9 +25,15 @@ describe('CustomerService', () => {
     expect(service).toBeTruthy(); 
   });
 
-  it('should get users', () => {
-    let spy = spyOn(service, 'getUsers');
-    service.getUsers();
+  it('should set user', () => {
+    let spy = spyOn(service, 'setUser');
+    service.setUser(1);
+    expect(spy).toHaveBeenCalled(); 
+  });
+
+  it('should get user', () => {
+    let spy = spyOn(service, 'getCustomer');
+    service.getCustomer();
     expect(spy).toHaveBeenCalled(); 
   });
 });
