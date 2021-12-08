@@ -56,6 +56,7 @@ export class LogTableComponent implements AfterViewInit {
     console.log(log)
     this.customerService.setUser(log.customer_id);
     this.dialog.open(CustomerDialogComponent, {
+      width: "80vw",
       data: log
     });
   }

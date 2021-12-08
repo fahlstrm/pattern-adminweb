@@ -100,27 +100,47 @@ mat-dialog-content::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
 
 
 
-.green {
+.green-background {
     background-color: #69f0ae;
 }
 
-.purple {
+.green {
+    color: #69f0ae
+}
+
+.purple-backgorund {
     background-color: #7b1fa2;
 }
 
-.orange {
+.purple {
+    color: #7b1fa2;
+}
+
+.orange-background {
     background-color: orange;
 }
 
-.red {
+.orange {
+    color: orange;
+}
+
+.red-background {
     background-color: lightcoral;
 }
 
-.yellow {
+.red {
+    color: lightcoral
+}
+
+.yellow-background {
     background-color: rgb(226, 226, 138);
 }
 
-.grey {
+.yellow {
+    color: rgb(226, 226, 138);
+}
+
+.grey-background {
     background-color: grey;
     color: white;
 }

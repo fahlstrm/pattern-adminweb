@@ -49,6 +49,7 @@ export class CustomerTableComponent implements AfterViewInit {
   openDialog(customer: any): void {
     this.customerService.setUser(customer.id);
     this.dialog.open(CustomerDialogComponent, {
+      width: "80vw",
       data: customer
     });
   }
