@@ -11,11 +11,22 @@ import { Subscription } from 'rxjs';
 export class CustomerDialogComponent implements OnInit {
   fromPage!: string;
   fromDialog!: string;
+  customer: any = [{username: "test"}]; 
+  customerSubscription: Subscription;
 
   constructor(
     public dialogRef: MatDialogRef<CustomerDialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {}
+    public customerService: CustomerService
+  ) {
+    
+    this.customerSubscription = this.customerService.getCustomer().subscribe(
+      (data :any ) => {
+        this.customer = data;
+        console.log(this.customer)
+      }
+    );
+  }
 
   ngOnInit(): void {
   }

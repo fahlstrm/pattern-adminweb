@@ -5,7 +5,8 @@ import { MatTable } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Subscription } from 'rxjs';
-
+import { CustomerDialogComponent } from '../../utils/dialogs/customer-dialog/customer-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-log-table',
@@ -32,7 +33,8 @@ export class LogTableComponent implements AfterViewInit {
     'total_cost'];
 
   constructor(
-    public customerService: CustomerService
+    public customerService: CustomerService,
+    public dialog: MatDialog
   ) {
     this.logSubscription = this.customerService.getLog().subscribe(resources => {
       this.dataSource.data = resources; 
@@ -44,4 +46,13 @@ export class LogTableComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {}
+
+  
+  openDialog(log: any): void {
+    console.log(log)
+    this.customerService.setUser(log.customer_id);
+    this.dialog.open(CustomerDialogComponent, {
+      data: log
+    });
+  }
 }

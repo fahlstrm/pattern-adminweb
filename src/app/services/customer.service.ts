@@ -10,9 +10,9 @@ export class CustomerService {
   private users = new Subject<any>();
   private logs = new Subject<any>();
   private userLog = new Subject<any>();
-  private _user: any; 
+  private _userId: any; 
   private user = new Subject<any>();
-
+  private customer = new Subject<any>();
 
   constructor(private httpService: HttpService, private http: HttpClient) {
   }  
@@ -24,18 +24,27 @@ export class CustomerService {
     return this.users.asObservable();
   }
 
-  setUser(user: any): any {
-    this._user = user;
-    this.user.next(this._user); 
+  getCustomer() {
+    console.log(this._userId)
+    this.httpService.getUser(this._userId).subscribe((data:any) => {
+      console.log(data)
+      this.customer.next(data);
+    })
+    return this.customer.asObservable();
+    
   }
 
-  getUser(): any {
-    return this._user.id;
+  setUser(userId: any): any {
+    this._userId = userId;
+    this.user.next(this._userId); 
+  }
+
+  getUserId(): any {
+    return this._userId;
   }
 
   getUserLog(): Observable<any> {
-    console.log("hämtar kund", this._user.id)
-    this.httpService.getUserLog(this._user.id).subscribe((data:any) => {
+    this.httpService.getUserLog(this._userId).subscribe((data:any) => {
       this.userLog.next(data);
     })
     return this.userLog.asObservable();
