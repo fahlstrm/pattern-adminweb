@@ -1,26 +1,28 @@
 [![CircleCI](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master.svg?style=svg)](https://circleci.com/gh/fahlstrm/pattern-adminweb/tree/master) [![codecov](https://codecov.io/gh/fahlstrm/pattern-adminweb/branch/master/graph/badge.svg?token=VNL3DOH0AR)](https://codecov.io/gh/fahlstrm/pattern-adminweb)
 
 # Adminweb
+This repository is part of a group project done for the ['pattern' course](https://www.bth.se/utbildning/program-och-kurser/kurser/20232/BR4QJ/) at Blekinge Institute of Technology.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+Adminweb is developed using Angular framework. 
+Note that the application is based on [xxxxx]() backend,  without this repo the application might not work as expected. The master-repo can be found here: [xxxxx]()
 
-## Run the server
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. 
-The app will automatically reload if you change any of the source files.
+To clone the repository run: `git clone xxxxx`
 
-## Code scaffolding
+## Developer mode
+Run `npm install` to get required dependencies. Angular CLI is required, install it using `npm install -g @angular/cli`. Once Angular CLI is installed one can create new components, services using `ng xxx`. 
+To start the application run `npm start`. The application can be opened in browser using localhost:4200
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Build and run
+The repo includes a Dockerfile so the application can run without further installations once cloned.
 
-## Build
+Build the docker image using `build -t adminweb-pattern:latest .` and run `docker run –rm -it -p 4200:80 adminweb-pattern:latest` to start the application.
 
-Run `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4200 can be changed to arbitrary port, but it is important to use port 80 due to the Dockerfile using nginx as headless browser and nginx listens on port 80.
 
-## Running unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io). It will also run code coverage.
-The latest git commit is runned by continuous integration service [CircleCi](https://circleci.com/). 
-It'll also check code coverage by [CodeCov](https://app.codecov.io/)
+## Testing
+Tests using Karma/Jasmine can be run using the command `ng test`. You will see the test results in the terminal window and in a headless browser window. Using the flag `--code-coverage` will save a code coverage report in html and lcov formats in the root folder /coverage.
 
-## Further help
+Configuration files for CircleCI and Codecov are included in the repository. Setup for CircleCi and Codecov might be needed externally. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Use `ng lint` to run ESLint in the project folder.
+
