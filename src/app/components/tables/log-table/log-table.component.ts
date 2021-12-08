@@ -37,7 +37,11 @@ export class LogTableComponent implements AfterViewInit {
     public dialog: MatDialog
   ) {
     this.logSubscription = this.customerService.getLog().subscribe(resources => {
-      this.dataSource.data = resources; 
+      this.dataSource.data = resources;
+      this.dataSource.data.forEach(row => {
+        row.start_time = Date.parse(row.start_time);
+        row.end_time = Date.parse(row.end_time);
+      })
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
