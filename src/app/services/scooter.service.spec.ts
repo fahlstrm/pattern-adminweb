@@ -20,7 +20,9 @@ describe('ScooterService', () => {
     scooterStub = {
       getStationScooters: () => of([{"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"}]),
       getCities: () => of(),
-      changeScooterStatus: () => of()
+      changeScooterStatus: () => of(),
+      getScooters: () => of([{"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"}]),
+      getAllScooters: () => of([{"id":2,"city_id":1,"location":"Sjukhuset","lat_center":"58.407255","lon_center":"13.824840","radius":"0.002","type":"charge"}])
     }
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule, RouterTestingModule ],
@@ -34,7 +36,7 @@ describe('ScooterService', () => {
   });
 
   it('should load scooters', () => {
-    service.city = [1];
+    service.city = [{"id": 1}];
     service.station = {"id": 1};
     let spy = spyOn(service, 'getStationScooters');
     service.getStationScooters();
