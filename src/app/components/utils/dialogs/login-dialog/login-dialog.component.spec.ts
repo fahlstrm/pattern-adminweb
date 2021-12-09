@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginDialogComponent } from './login-dialog.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('LoginDialogComponent', () => {
@@ -12,7 +13,8 @@ describe('LoginDialogComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginDialogComponent ],
       imports: [
-        MatDialogModule
+        MatDialogModule,
+        HttpClientTestingModule
       ],
       providers: [{ provide: MatDialogRef, useValue: {} }]
     })
