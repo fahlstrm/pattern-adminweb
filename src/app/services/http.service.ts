@@ -108,4 +108,17 @@ export class HttpService {
     return this.http.get(`${this.baseUrl}/logs`);
   }
 
+  
+  // Checks if admin is authorized
+  checkAdminAuth(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/auth/github/check-usertype`, { withCredentials: true });
+  }
+
+  // Redirects user to GitHub for login
+  githubRedirect(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/auth/github/redirect`);
+  }
+  
+
+
 }

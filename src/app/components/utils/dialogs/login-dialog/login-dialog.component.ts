@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service'; 
 
 @Component({
   selector: 'app-login-dialog',
@@ -15,16 +16,26 @@ export class LoginDialogComponent implements OnInit {
   btnText = "GitHub";
 
   loggedIn: boolean = false;
-  // loggedInSubscription: Subscription;
+  loggedInSubscription: Subscription;
 
   loginEvent: any;
-  // loginEventSubscription: Subscription;
-  
+  loginEventSubscription: Subscription;
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any
-    ) {}
+    @Optional() @Inject(MAT_DIALOG_DATA) public mydata: any,
+    public authService: AuthService
+    ) {
+      this.loggedInSubscription = this.authService.onSetLoggedIn().subscribe(loggedIn => {
+        console.log("loggin sub", loggedIn)
+        this.loggedIn = loggedIn;
+      })
+  
+      this.loginEventSubscription = this.authService.onSetLoginEvent().subscribe(loginEvent => {
+        console.log("event", loginEvent)
+        this.loginEvent = loginEvent;
+      })
+    }
 
 
   ngOnInit(): void {
@@ -38,10 +49,10 @@ export class LoginDialogComponent implements OnInit {
 
   loginClick() {
     console.log("test")
-    // this.customerSerivce.loginCustomer();
+    this.authService.loginCustomer();
   }
 
   checkClick() {
-    // this.customerSerivce.checkClick();
+    this.authService.checkClick();
   }
 }
