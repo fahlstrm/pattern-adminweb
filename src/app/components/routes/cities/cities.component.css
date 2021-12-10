@@ -4,9 +4,6 @@
     position: relative;
     text-align: center;
 }
-
-
-
 .city-div img {
     width: 100%;
     height: 20vh;
@@ -15,6 +12,7 @@
     outline-offset: -10vh;
     overflow: hidden;
     position: relative;
+    
 }
 
 /* .city-div img:hover {
@@ -34,7 +32,26 @@
     /* padding: 2rem; */
 }
 
-
-img:hover > *:hover {
-    outline: 100px solid rgba(197, 197, 197, 0.075) !important;
+.city-div:hover .overlay {
+    opacity: 1;
+  }
+  
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20vh;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #7b1fa2;
 }
+
+.overlay p {
+    color: orange;
+}
+
+
