@@ -11,12 +11,12 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getCities(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/cities`);
+    return this.http.get<any>(`${this.baseUrl}/cities`, { withCredentials: true });
   }
 
   getScooters(city: any): Observable<any> {
     console.log(city)
-    return this.http.get<any>(`${this.baseUrl}/cities/${city}/scooters`);
+    return this.http.get<any>(`${this.baseUrl}/cities/${city}/scooters`, { withCredentials: true });
   }
 
   getAllScooters(): Observable<any> {
@@ -82,7 +82,7 @@ export class HttpService {
   }
 
   getStations(city: any): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/cities/${city}/stations`);
+    return this.http.get<any>(`${this.baseUrl}/cities/${city}/stations`, { withCredentials: true });
   }
 
   getStationScooters(station: any): Observable<any> {
@@ -90,22 +90,22 @@ export class HttpService {
   }
 
   getUsers(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/users`);
+    return this.http.get<any>(`${this.baseUrl}/users`, { withCredentials: true });
   }
 
   //Get one user by id 
   getUser(id: any): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/users/${id}`);
+    return this.http.get<any>(`${this.baseUrl}/users/${id}`, { withCredentials: true });
   }
 
   //Get log for specific user
   getUserLog(id:any): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/users/${id}/logs`);
+    return this.http.get<any>(`${this.baseUrl}/users/${id}/logs`, { withCredentials: true });
   }
 
   //get log
   getLog(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/logs`);
+    return this.http.get(`${this.baseUrl}/logs`, { withCredentials: true });
   }
 
   
@@ -116,7 +116,7 @@ export class HttpService {
 
   // Redirects user to GitHub for login
   githubRedirect(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/auth/github/redirect/admin`);
+    return this.http.get<any>(`${this.baseUrl}/auth/github/redirect/admin`, { withCredentials: true });
   }
   
 
