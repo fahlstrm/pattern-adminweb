@@ -6,10 +6,10 @@
 }
 .city-div img {
     width: 100%;
-    height: 20vh;
+    height: 30vh;
     object-fit: cover;
-    outline: 10vh solid rgba(116, 104, 104, 0.5) !important;
-    outline-offset: -10vh;
+    outline: 15vh solid rgba(116, 104, 104, 0.5) !important;
+    outline-offset: -15vh;
     overflow: hidden;
     position: relative;
     
@@ -43,7 +43,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 20vh;
+    height: 30vh;
     width: 100%;
     opacity: 0;
     transition: .5s ease;
