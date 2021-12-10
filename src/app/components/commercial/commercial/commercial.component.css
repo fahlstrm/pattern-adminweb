@@ -18,12 +18,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5vh;
-    width: 15vw;
+    height: 7.5vh;
+    width: 20vw;
     z-index: 1;
-    left: 25vw;
+    left: 20vw;
     top: 50%;
     transform: translateY(-50%);
+    background-image: linear-gradient(to bottom right, #7b1fa2, #7b1fa2a2);
 }
 
-
+.mat-raised-button:hover {
+    color: orange;
+}

@@ -1,14 +1,15 @@
 .content-div {
     color: white;
     height: 30vh;
-    border-radius: 3px;
-    justify-content: space-around;
     font-size: 1.2em;
     padding: 0;
 }
 
-div h3 {
-    padding: 2em;
+.text-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9vh;
 }
 
 
