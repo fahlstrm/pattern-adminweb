@@ -35,7 +35,7 @@ export class AuthService {
     console.log("i checkClick")
     this.httpService.checkAdminAuth()
     .subscribe((res) => {
-      if (res.user_type == "customer" || res.user_type == "admin") {
+      if (res.user_type == "admin") {
         console.log("häntar admin", res)
         this.setAdminId(res.id);
         this.setLoginEvent("clicked")

@@ -116,7 +116,7 @@ export class HttpService {
 
   // Redirects user to GitHub for login
   githubRedirect(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/auth/github/redirect`);
+    return this.http.get<any>(`${this.baseUrl}/auth/github/redirect/admin`);
   }
   
 
