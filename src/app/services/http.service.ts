@@ -20,11 +20,11 @@ export class HttpService {
   }
 
   getAllScooters(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/scooters`);
+    return this.http.get<any>(`${this.baseUrl}/scooters`, { withCredentials: true });
   }
 
   getOneScooter(scooter: any): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/scooters/${scooter.id}`);
+    return this.http.get<any>(`${this.baseUrl}/scooters/${scooter.id}`, { withCredentials: true });
   }
 
   // Ändrar status för scooter
@@ -32,7 +32,7 @@ export class HttpService {
     const body = {
       "status": scooter.status
     }
-    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
+    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body, { withCredentials: true })
     .subscribe({
       next: res => {
         return res;
@@ -50,7 +50,7 @@ export class HttpService {
       "status": scooter.status,
       "battery_level": scooter.battery_level
     }
-    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
+    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body, { withCredentials: true })
     .subscribe({
       next: res => {
         return res;
