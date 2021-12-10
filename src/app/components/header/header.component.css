@@ -1,7 +1,7 @@
 :host {
     height: 100%;
-    display: flex;
-    padding-left: 2em;
+    display: grid;
+    padding: 0 2em;
 }
 
 img {
@@ -10,3 +10,14 @@ img {
     z-index: 3;
 }
 
+
+.round {
+    margin-top: 6em;
+    grid-column: 8/span 4;
+    height: 15vh;
+    width: 15vh;
+}
+
+.icon-display {
+    transform: scale(3);
+}

@@ -72,9 +72,24 @@ app-footer {
     color: orange;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* table-row hoover */ 
 .mat-row:hover {
     background-color: rgba(211, 211, 211, 0.61);;
+}
+
+
+.round {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
 
 

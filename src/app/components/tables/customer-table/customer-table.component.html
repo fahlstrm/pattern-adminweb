@@ -21,7 +21,7 @@
     <!-- paymentTerms Column -->
     <ng-container matColumnDef="payment_terms">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Betalningsmetod</th>
-      <td mat-cell *matCellDef="let row">{{row.payment_terms}}</td>
+      <td mat-cell *matCellDef="let row">{{row.payment_terms == 'invoice' ? 'Faktura' : 'Konto'}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -6,7 +6,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  // @HostBinding('class') classes = 'grid grid-wrap';
+  @HostBinding('class') classes = 'grid grid-wrap';
 
   title = 'Sctr';
   subtitle = 'Admin';
