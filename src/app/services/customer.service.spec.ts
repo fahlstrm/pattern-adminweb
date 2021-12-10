@@ -35,10 +35,10 @@ describe('CustomerService', () => {
     expect(spy).toHaveBeenCalled(); 
   });
 
-  it('should get user', fakeAsync(() => {
-    let spy = spyOn(service, 'getCustomer');
-    service.getCustomer();
-    tick(1000);
-    expect(spy).toHaveBeenCalled(); 
-  }));
+  // it('should get user', fakeAsync(() => {
+  //   let spy = spyOn(service, 'getCustomer');
+  //   service.getCustomer();
+  //   tick(1000);
+  //   expect(spy).toHaveBeenCalled(); 
+  // }));
 });
