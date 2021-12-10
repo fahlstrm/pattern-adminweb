@@ -148,4 +148,10 @@ describe('HttpService', () => {
     const req = httpTestingController.expectOne(service.baseUrl + "/scooters/1");
     expect(req.request.method).toEqual('PUT');
   });
+
+  // it('should redirect to github', () => {
+  //   service.githubRedirect();
+  //   const req = httpTestingController.expectOne(service.baseUrl + "/auth/github/redirect/admin");
+  //   expect(req.request.method).toEqual('GET');
+  // });
 });
