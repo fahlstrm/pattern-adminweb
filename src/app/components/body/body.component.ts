@@ -19,7 +19,7 @@ export class BodyComponent implements OnInit {
     public authService: AuthService,
     public httpService: HttpService
   ) {
-    this.loggedInSubscription = this.authService.onSetLoggedIn().subscribe(data => {
+    this.loggedInSubscription = this.authService.onSetLoginEvent().subscribe(data => {
       console.log("loggin sub", data)
       this.auth = data;
     })
