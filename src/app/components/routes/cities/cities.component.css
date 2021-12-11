@@ -10,6 +10,7 @@
     object-fit: cover;
     outline: 15vh solid rgba(116, 104, 104, 0.5) !important;
     outline-offset: -15vh;
+
     overflow: hidden;
     position: relative;
     
