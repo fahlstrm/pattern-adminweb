@@ -1,5 +1,5 @@
 
-<div *ngIf="loggedIn; else commercial" class="">
+<div *ngIf="auth; else commercial" class="">
     <!-- The routed views render in the <router-outlet>-->
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>

@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class BodyComponent implements OnInit {
   // @Input() auth: any;
+  auth: boolean = false;
   loggedIn: boolean = false;
   loggedInSubscription: Subscription;
 
@@ -18,9 +19,9 @@ export class BodyComponent implements OnInit {
     public authService: AuthService,
     public httpService: HttpService
   ) {
-    this.loggedInSubscription = this.authService.onSetLoggedIn().subscribe(loggedIn => {
-      console.log("loggin sub", loggedIn)
-      this.loggedIn = loggedIn;
+    this.loggedInSubscription = this.authService.onSetLoggedIn().subscribe(data => {
+      console.log("loggin sub", data)
+      this.auth = data;
     })
   }
 
@@ -35,14 +36,14 @@ export class BodyComponent implements OnInit {
       console.log("res", res)
       if (res.user_type == "admin") {
         this.authService.setAdminId(res.id);
-        this.loggedIn = true;
+        this.auth = true;
       }
     });
   }
 
   // Changes variable to show new screen when login has been initiated
   loginClick(): void {
-    this.loggedIn = !this.loggedIn;
+    this.auth = !this.auth;
   }
 
 
