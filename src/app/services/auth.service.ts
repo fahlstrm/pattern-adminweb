@@ -22,7 +22,7 @@ export class AuthService {
 
   
   // Get redirected to GitHub to log in
-  loginCustomer(): any {
+  loginAdmin(): any {
     this.httpService.githubRedirect()
     .subscribe((res) => {
       this.setLoggedin(!this._loggedIn)

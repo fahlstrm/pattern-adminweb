@@ -16,7 +16,7 @@ describe('LoginDialogComponent', () => {
       setAdminId: () => of(true),
       onSetLoggedIn: () => of(true),
       onSetLoginEvent: () => of(true),
-      loginCustomer: () => of(true),
+      loginAdmin: () => of(true),
       checkClick: () => of({"user_type": "admin"})
     }
     await TestBed.configureTestingModule({
