@@ -17,9 +17,7 @@ export class CommercialComponent implements OnInit {
   }
 
   openLoginDialog(): void {
-    this.dialog.open(LoginDialogComponent, {
-      data: "test"
-    });
+    this.dialog.open(LoginDialogComponent, {});
   }
 
 }

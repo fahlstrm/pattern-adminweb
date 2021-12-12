@@ -23,7 +23,6 @@ export class CustomerDialogComponent implements OnInit {
     this.customerSubscription = this.customerService.getCustomer().subscribe(
       (data :any ) => {
         this.customer = data;
-        console.log(this.customer)
       }
     );
   }

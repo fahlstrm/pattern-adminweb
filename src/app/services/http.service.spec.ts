@@ -75,7 +75,7 @@ describe('HttpService', () => {
   });
 
   it('should return one user', () => {
-    service.getUser(1).subscribe(
+    service.getCustomer(1).subscribe(
       user => expect(user).toEqual(expectedUser, 'should return one user')
     );
 
@@ -87,7 +87,7 @@ describe('HttpService', () => {
   });
 
   it('should return one log', () => {
-    service.getUserLog(3).subscribe(
+    service.getCustomerLog(3).subscribe(
       user => expect(user).toEqual(expectedLogs, 'should return one user log')
     );
 
@@ -121,7 +121,7 @@ describe('HttpService', () => {
   });
 
   it('should return expected users', () => {
-    service.getUsers().subscribe(
+    service.getCustomers().subscribe(
       users => expect(users).toEqual(expectedUsers, 'should return expected stations')
     );
 
