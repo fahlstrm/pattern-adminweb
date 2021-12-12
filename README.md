@@ -4,9 +4,9 @@
 This repository is part of a group project done for the ['pattern' course](https://www.bth.se/utbildning/program-och-kurser/kurser/20232/BR4QJ/) at Blekinge Institute of Technology.
 
 Adminweb is developed using Angular framework. 
-Note that the application is based on [xxxxx]() backend,  without this repo the application might not work as expected. The master-repo can be found here: [orchestra](https://github.com/datalowe/pattern-orchestra)
+Note that the application is based on [pattern-backend](https://github.com/datalowe/pattern-backend)-repo as backend, without this repo the application might not work as expected. The master-repo can be found here: [orchestra](https://github.com/datalowe/pattern-orchestra)
 
-To clone the repository run: `git clone xxxxx`
+To clone the repository run: `git clone https://github.com/fahlstrm/pattern-adminweb`
 
 ## Developer mode
 Run `npm install` to get required dependencies. Angular CLI is required, install it using `npm install -g @angular/cli`. Once Angular CLI is installed one can create new components, services using `ng xxx`. 
