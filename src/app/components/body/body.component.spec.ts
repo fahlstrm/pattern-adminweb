@@ -9,7 +9,7 @@ describe('BodyComponent', () => {
   let fixture: ComponentFixture<BodyComponent>;
   let authStub = {
     setAdminId: () => of("result"),
-    onSetLoggedIn: () => of(true),
+    onSetLoginEvent: () => of(true),
     checkAdminAuth: () => of({"user_type": "admin"})
   }
 
