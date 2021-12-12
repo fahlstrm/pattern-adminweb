@@ -34,6 +34,7 @@ p {
     line-height: 1.35em;
 }
 
+
 .bottom-div {
     grid-column: 1/span 12;
     grid-row: 2;
