@@ -29,13 +29,13 @@ describe('CustomerService', () => {
     expect(service).toBeTruthy(); 
   });
 
-  it('should set user', () => {
-    let spy = spyOn(service, 'setUser');
-    service.setUser(1);
+  it('should set customer', () => {
+    let spy = spyOn(service, 'setCustomer');
+    service.setCustomer(1);
     expect(spy).toHaveBeenCalled(); 
   });
 
-  it('should get user', fakeAsync(() => {
+  it('should get customer', fakeAsync(() => {
     let spy = spyOn(service, 'getCustomer');
     service.getCustomer();
     tick(1000);
