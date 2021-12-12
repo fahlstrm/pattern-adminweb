@@ -27,7 +27,7 @@ describe('AuthService', () => {
 
   it('should call login', () => {
     let spy = spyOn(service, 'setLoggedin')
-    service.loginCustomer();
+    service.loginAdmin();
     expect(spy).toHaveBeenCalled();
   });
 
