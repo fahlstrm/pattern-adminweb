@@ -5,7 +5,7 @@ body {
 
 app-root {
     display: grid;
-    grid-template-rows: 10vh 5vh auto 25vh;
+    grid-template-rows: 10vh auto auto 25vh;
 }
 
 .app-header-link, app-navbar, app-body {
@@ -19,12 +19,12 @@ app-root {
 }
 
 app-body {
-    grid-row: 2 /span 2;
+    grid-row: 2/span 2;
     min-height: 60vh;
 }
 
 app-footer {
-    grid-row: 4;
+    grid-row: 3;
 }
 
 .grid-wrap {

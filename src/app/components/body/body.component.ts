@@ -10,17 +10,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./body.component.css']
 })
 export class BodyComponent implements OnInit {
-  // @Input() auth: any;
   auth: boolean = false;
-  loggedIn: boolean = false;
-  loggedInSubscription: Subscription;
+  authSubscription: Subscription;
 
   constructor(
     public authService: AuthService,
     public httpService: HttpService
   ) {
-    this.loggedInSubscription = this.authService.onSetLoginEvent().subscribe(data => {
-      console.log("loggin sub", data)
+    this.authSubscription = this.authService.onSetLoginEvent().subscribe(data => {
       this.auth = data;
     })
   }
@@ -29,7 +26,7 @@ export class BodyComponent implements OnInit {
     this.checkClick();
   }
 
-  // Checks if user is authorized
+  // Checks if admin is authorized
   checkClick(): void {
     this.httpService.checkAdminAuth()
     .subscribe((res: any) => {
@@ -41,10 +38,12 @@ export class BodyComponent implements OnInit {
     });
   }
 
+
+  //Not sure to be used in body
   // Changes variable to show new screen when login has been initiated
-    loginClick(): void {
-      this.auth = !this.auth;
-    }
+    // loginClick(): void {
+    //   this.auth = !this.auth;
+    // }
 
 
 }
