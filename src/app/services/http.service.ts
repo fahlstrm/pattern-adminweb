@@ -89,17 +89,17 @@ export class HttpService {
     return this.http.get(`${this.baseUrl}/stations/${station}/scooters`);
   }
 
-  getUsers(): Observable<any> {
+  getCustomers(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/users`, { withCredentials: true });
   }
 
   //Get one user by id 
-  getUser(id: any): Observable<any> {
+  getCustomer(id: any): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/users/${id}`, { withCredentials: true });
   }
 
   //Get log for specific user
-  getUserLog(id:any): Observable<any> {
+  getCustomerLog(id:any): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/users/${id}/logs`, { withCredentials: true });
   }
 
@@ -118,7 +118,4 @@ export class HttpService {
   githubRedirect(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/auth/github/redirect/admin`, { withCredentials: true });
   }
-  
-
-
 }

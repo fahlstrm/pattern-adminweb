@@ -28,7 +28,7 @@ export class CityService {
     return of(this._city);
   }
 
-  
+  //Set current city
   setCity(name: string): any {
     this._city = this._cities.filter((city:any) => {
       return city.name == name
@@ -39,7 +39,8 @@ export class CityService {
   onSet(): Observable<any> {
     return this.subject.asObservable();
   }
-    
+  
+  // Get all cities
   getCities(): Observable<any> {
     this.httpService.getCities().subscribe((data:any) => {
       this.subject.next(data);

@@ -26,7 +26,7 @@ export class UserLogTableComponent implements AfterViewInit {
   constructor(
     public customerService: CustomerService,
   ) {
-    this.customerLogSubscription = this.customerService.getUserLog().subscribe(resources => {
+    this.customerLogSubscription = this.customerService.getCustomerLog().subscribe(resources => {
       this.dataSource.data = resources; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

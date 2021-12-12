@@ -5,7 +5,7 @@
     padding-top: 50px;
     -webkit-clip-path: polygon(0 0,100% 20%,100% 100%,0% 100%);
     clip-path: polygon(0 0,100% 20%,100% 100%,0% 100%); 
-    background: linear-gradient(to bottom left, #5c5c5c, #424242, #424242, #252525);
+    background: linear-gradient(to bottom left, #5c5c5c, #424242, #3f3f3f, #333333);
 }
 
 

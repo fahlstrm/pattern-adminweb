@@ -7,44 +7,45 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class CustomerService {
-  private users = new Subject<any>();
+  private customers = new Subject<any>();
   private logs = new Subject<any>();
   private userLog = new Subject<any>();
-  private _userId: any; 
-  private user = new Subject<any>();
+  private _customerId: any; 
+  // private user = new Subject<any>();
   private customer = new Subject<any>();
 
   constructor(private httpService: HttpService, private http: HttpClient) {
   }  
 
-  getUsers(): Observable<any> {
-    this.httpService.getUsers().subscribe((data:any) => {
-      this.users.next(data);
+  // Get users
+  getCustomers(): Observable<any> {
+    this.httpService.getCustomers().subscribe((data:any) => {
+      this.customers.next(data);
     });
-    return this.users.asObservable();
+    return this.customers.asObservable();
   }
 
   getCustomer() {
-    console.log(this._userId)
-    this.httpService.getUser(this._userId).subscribe((data:any) => {
-      console.log(data)
+    this.httpService.getCustomer(this._customerId).subscribe((data:any) => {
       this.customer.next(data);
     })
     return this.customer.asObservable();
-    
   }
 
-  setUser(userId: any): any {
-    this._userId = userId;
-    this.user.next(this._userId); 
+  // Set choosen customer
+  setCustomer(customerId: any): any {
+    this._customerId = customerId;
+    this.customer.next(this._customerId); 
   }
 
-  getUserId(): any {
-    return this._userId;
+  // Get current customer
+  getCustomerId(): any {
+    return this._customerId;
   }
 
-  getUserLog(): Observable<any> {
-    this.httpService.getUserLog(this._userId).subscribe((data:any) => {
+  // Get log for current user
+  getCustomerLog(): Observable<any> {
+    this.httpService.getCustomerLog(this._customerId).subscribe((data:any) => {
       this.userLog.next(data);
     })
     return this.userLog.asObservable();

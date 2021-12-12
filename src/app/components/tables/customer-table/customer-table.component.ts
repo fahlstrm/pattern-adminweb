@@ -30,7 +30,7 @@ export class CustomerTableComponent implements AfterViewInit {
 
   //Gets data from scooterService 
   refresh(): void{
-    this.customerService.getUsers().subscribe(resources => {
+    this.customerService.getCustomers().subscribe(resources => {
       this.dataSource.data = resources; 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -47,7 +47,7 @@ export class CustomerTableComponent implements AfterViewInit {
   }
 
   openDialog(customer: any): void {
-    this.customerService.setUser(customer.id);
+    this.customerService.setCustomer(customer.id);
     this.dialog.open(CustomerDialogComponent, {
       width: "80vw",
       data: customer
