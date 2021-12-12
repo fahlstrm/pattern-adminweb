@@ -40,11 +40,11 @@ describe('BodyComponent', () => {
   //   expect(component.loggedIn).toBeTrue();
   // });
 
-  it('should change loggedIn', () => {
-    component.loggedIn = false;
+  it('should change auth', () => {
+    component.auth = false;
     fixture.detectChanges();
     component.loginClick();
     fixture.detectChanges();
-    expect(component.loggedIn).toBeTrue();
+    expect(component.auth).toBeTrue();
   });
 });

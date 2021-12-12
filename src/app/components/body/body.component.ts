@@ -42,9 +42,9 @@ export class BodyComponent implements OnInit {
   }
 
   // Changes variable to show new screen when login has been initiated
-  loginClick(): void {
-    this.auth = !this.auth;
-  }
+    loginClick(): void {
+      this.auth = !this.auth;
+    }
 
 
 }
