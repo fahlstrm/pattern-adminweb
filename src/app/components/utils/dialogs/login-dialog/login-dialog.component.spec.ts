@@ -39,13 +39,4 @@ describe('LoginDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should login', () => {
-    let button = fixture.debugElement.nativeElement.querySelector('button');
-    button.click();
-    fixture.whenStable().then(() => {
-      expect(component.loginClick).toHaveBeenCalled();
-    });
-  }) 
-
 });
