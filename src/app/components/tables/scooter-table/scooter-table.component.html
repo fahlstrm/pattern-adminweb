@@ -16,13 +16,13 @@
     <!-- battery level Column -->
     <ng-container matColumnDef="battery_level">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Batterinivå %</th>
-      <td mat-cell *matCellDef="let row">{{row.battery_level}}</td>
+      <td mat-cell *matCellDef="let row"><mat-progress-bar mode="determinate" value={{row.battery_level}} color="accent"></mat-progress-bar></td>
     </ng-container>
 
     <!-- Station Column -->
     <ng-container matColumnDef="station_id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Station</th>
-      <td mat-cell *matCellDef="let row">{{row.station_id}}</td>
+      <td mat-cell *matCellDef="let row" [ngClass]="{'run': row.customer_id != null}">{{ row.customer_id != null ? "Enhet körs" : row.station_id}}</td>
     </ng-container>
 
 

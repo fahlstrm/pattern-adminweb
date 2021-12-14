@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { NONE_TYPE } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -63,13 +64,14 @@ export class HttpService {
   }
 
   moveScooterToPark(scooter: any): any {
+    console.log(scooter)
     const body = {
       "station_id": scooter.station_id,
       "lat_pos": scooter.lat_pos,
       "lon_pos": scooter.lon_pos,
       "status": scooter.status
     }
-    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body)
+    return this.http.put<any>(`${this.baseUrl}/scooters/${scooter.id}`, body, { withCredentials: true })
     .subscribe({
       next: res => {
         return res;
@@ -85,8 +87,8 @@ export class HttpService {
     return this.http.get<any>(`${this.baseUrl}/cities/${city}/stations`, { withCredentials: true });
   }
 
-  getStationScooters(station: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}/stations/${station}/scooters`);
+  getStationScooters(station: any = 1): Observable<any> {
+    return this.http.get(`${this.baseUrl}/stations/${station}/scooters`, { withCredentials: true });
   }
 
   getCustomers(): Observable<any> {

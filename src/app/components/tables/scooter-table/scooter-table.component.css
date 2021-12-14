@@ -1,3 +1,12 @@
 .full-width-table {
   width: 100%;
 }
+
+
+.run {
+  color: orange;
+}
+
+mat-progress-bar {
+  width: 80%;
+}
