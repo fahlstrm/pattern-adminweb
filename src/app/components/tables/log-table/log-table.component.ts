@@ -38,7 +38,6 @@ export class LogTableComponent implements AfterViewInit {
   ) {
     this.logSubscription = this.customerService.getLog().subscribe(resources => {
       this.dataSource.data = resources;
-  
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;

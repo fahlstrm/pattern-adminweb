@@ -90,7 +90,7 @@ export class ScooterService {
 
   getScooters(): Observable<any> {
     if(this.city.length != 0) {
-      console.log("HÄMTAR", this.city[0].name)
+      // console.log("HÄMTAR", this.city[0].name)
 
       this.httpService.getScooters(this.city[0].id).subscribe(
         (data:any) => {
